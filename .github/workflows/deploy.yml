@@ -1,0 +1,53 @@
+name: Deploy Bateu (VPS)
+
+# Deploy automático da Bateu na VPS, sem mexer no Irmandade (app/porta próprios).
+# A cada push na main (ou disparo manual), entra na VPS por SSH, atualiza o
+# código, builda e dá pm2 reload do ecosystem.bateu.cjs (zero-downtime).
+#
+# Secrets necessários (Settings → Secrets and variables → Actions), apontando
+# para o deploy da BATEU:
+#   VPS_HOST     IP/domínio da VPS
+#   VPS_USER     usuário SSH que roda o pm2
+#   VPS_SSH_KEY  conteúdo da chave PRIVADA de deploy
+#   VPS_PORT     porta SSH (opcional, default 22)
+#   VPS_PATH     caminho do clone da Bateu na VPS (ex.: /var/www/bateu)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Evita dois deploys simultâneos pisando um no outro.
+concurrency:
+  group: deploy-bateu
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || '22' }}
+          script: |
+            set -e
+            # nvm: garante node/npm/pm2 no PATH do SSH não-interativo
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+            cd "${{ secrets.VPS_PATH }}"
+
+            # Estado limpo a partir da main (não toca no .env, que é gitignored)
+            git fetch origin main
+            git reset --hard origin/main
+
+            npm ci
+            npm run build
+
+            # Recarrega SÓ a Bateu (app 'bateu', porta 3110). Não afeta o irmandade.
+            pm2 reload ecosystem.bateu.cjs --update-env
+            pm2 save
