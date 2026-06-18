@@ -28,9 +28,10 @@ const env = {
   NODE_ENV: 'production',
   NUXT_PUBLIC_APP_BRAND: 'bateu',
   ...loadEnv(),
-  // Porta fixa do 2º deploy (não conflita com irmandade:3099). Vem DEPOIS do
-  // loadEnv() de propósito, para sobrepor um eventual PORT herdado do .env.
-  PORT: '3098'
+  // Porta fixa do 2º deploy (3098/3100/3101 ocupadas em produção, irmandade=3099).
+  // Vem DEPOIS do loadEnv() de propósito, para sobrepor um eventual PORT
+  // herdado do .env.
+  PORT: '3110'
 }
 
 // Aviso em produção: sem as chaves VAPID, as notificações push ficam desligadas.

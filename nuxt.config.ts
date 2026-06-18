@@ -24,6 +24,18 @@ export default defineNuxtConfig({
     serverBundle: 'remote',
   },
 
+  // O driver `mongodb` (v7) usa require() interno p/ deps opcionais. No bundle
+  // ESM do Nitro, `require` não existe → "require is not defined" ao criar o
+  // MongoClient. O banner define um require global (via createRequire) em todos
+  // os chunks, sem redeclarar quando já existe.
+  nitro: {
+    rollupConfig: {
+      output: {
+        banner: "import { createRequire as __nuxtCreateRequire } from 'node:module'; if (!globalThis.require) { globalThis.require = __nuxtCreateRequire(import.meta.url); }"
+      }
+    }
+  },
+
   // Parâmetros do deploy por env (mesmo código roda como Irmandade ou Bateu).
   // - mongodbUri/mongodbDb: banco próprio de cada marca (server-only).
   // - public.appBrand: marca ativa no client (slug em shared/brands.ts).
