@@ -87,12 +87,14 @@ definePageMeta({
   layout: 'default'
 })
 
-import { BRANDS } from '../../../shared/brands'
+import { getDefaultBrand } from '../../../shared/brands'
 
 const { login, loading, error, isAuthenticated, user } = useAuth()
 const { subscribe: subscribePush } = usePush()
 
-const brands = BRANDS
+// Mostra só a casa ativa deste deploy (NUXT_PUBLIC_APP_BRAND) no "Criar conta".
+// O login em si ainda aceita as casas habilitadas; aqui é só o link de cadastro.
+const brands = [getDefaultBrand(useRuntimeConfig().public.appBrand as string)]
 const errorMessage = ref('')
 const showPassword = ref(false)
 
