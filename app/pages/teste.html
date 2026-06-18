@@ -1,0 +1,2682 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Ia Cards Pro - Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="shortcut icon" type="image/png" href="img/logo.png">
+    <!-- Meta tag com token para JavaScript -->
+    <meta name="auth-token" content="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS1lc3BvcnRpdmEtYmV0YnIuYnMyYmV0LmNvbS92Mi9hdXRoL2xvZ2luIiwiaWF0IjoxNzY4NTAxOTI2LCJleHAiOjE3NjkxMDY3MjYsIm5iZiI6MTc2ODUwMTkyNiwianRpIjoiTW5tMTBuWEVxVVJkM2MzaiIsInN1YiI6IjI5NzM3NDAyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsImhhIjoiNSIsImhiIjoiY2ZlZDVlNGQ1NDI2MDQwYTkyYTJiMmU0MTkwNzI3MWYiLCJoYyI6Ijk0ZjY1N2Y1NDNmODliM2IzYTBjMDhkNzNhZTgzN2FmIiwiaGkiOiJlNDQ5MDZmNWM2ZmUyNWMzN2MzZmEwMjhkMTZmZmIyZiIsImhkIjoiYTUwMzhmZGExNzRlZDM3N2E5Y2ZlYjI3YTRhNDY0ZjEiLCJobCI6ImMzYzNkMWM5YzQ2NjIzZGFhNGI5MmU2ODdkMDk3MzhhIiwiaGYiOiIxXzYzZDI2ODlmM2U4NzIwN2UzMzVhMzE0NmFkNDJlMjA4XzE3Njg1MDE5MjUifQ.z_GX1B1P3389Fct-Uq_ONh_usqy3ibNms3If86s1A7s">
+    <!-- Meta tag com user_id para JavaScript -->
+    <meta name="user-id" content="29737402">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sections.css?v=1768501969">
+    <link rel="stylesheet" href="css/games.css">
+    <link rel="stylesheet" href="css/history.css?v=1768501969">
+    <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="css/game-session.css?v=1768501969">
+    <link rel="stylesheet" href="css/bacbo.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/aulas.css">
+    <link rel="stylesheet" href="css/premium.css">
+    <link rel="stylesheet" href="css/inicio-novo.css?v=1768501969">
+    <link rel="stylesheet" href="css/gestao.css?v=1768501969.7138">
+    <!-- Tema e sala de sinais (necessários para o modal e card ficarem iguais ao app referência) -->
+    <link rel="stylesheet" href="css/theme-gold-green.css?v=1768501969">
+    <link rel="stylesheet" href="css/sala-sinais.css?v=1768501969">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <div class="background-overlay"></div>
+    
+    <!-- Menu Lateral removido - substituído por menu inferior -->
+    
+    
+<!-- Header -->
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+            <div class="logo">
+                <img src="img/logo.png" alt="Ia Cards Pro" class="header-logo">
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-balance" id="userBalance"> 
+                <i class="fas fa-wallet"></i>
+                <span id="balanceAmount" data-hidden="true">***</span>
+                <button class="balance-toggle" id="balanceToggle" aria-label="Mostrar/Esconder saldo">
+                    <i class="fas fa-eye-slash"></i>
+                </button>
+            </div>
+            <button class="btn-deposit" id="headerDepositBtn">
+                DEPOSITAR
+            </button>
+            <div class="user-menu">
+                <div class="user-avatar" id="userAvatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="dropdown-menu" id="userDropdown">
+                    <a href="#" class="dropdown-item" id="manageAccount">
+                        <i class="fas fa-user-cog"></i>
+                        Gerenciar Conta
+                    </a>
+                    <a href="#" class="dropdown-item" id="depositBtn">
+                        <i class="fas fa-plus-circle"></i>
+                        Depositar
+                    </a>
+                  
+                    <div class="dropdown-divider"></div>
+                    <a href="logout.php" class="dropdown-item logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Sair
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <main class="dashboard-container main-content-wrapper">
+        <div class="sections-container">
+            
+<!-- Seção Início -->
+<section id="inicio-section" class="section active">
+    <div class="inicio-section-new">
+        <!-- Conteúdo principal -->
+        <main class="dashboard-main-new">
+            <!-- Sidebar Noticias -->
+            <aside class="sidebar-right">
+                <h3>Notícias recentes</h3>
+
+                <div class="news-highlight">
+                    <img src="img/noticias.jpg" alt="Notícia principal">
+                    <h4>Nova estratégia liberada</h4>
+                    <p>Entrou no ar uma nova estratégia para o jogo Evolution Gaming!</p>
+                </div>
+
+                <div class="news-card" id="destaque">
+                    <img src="img/canal-live.jpg" alt="Card 1">
+                    <div class="news-text">
+                        <h4>Novo Canal de Lives</h4>
+                        <p>Confira o novo canal de lives com análises em tempo real.</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <img src="img/noticias.jpg" alt="Card 2">
+                    <div class="news-text">
+                        <h4>Atualização nas odds</h4>
+                        <p>Veja o novo ajuste nas odds do Evolution Gaming. Aproveite!</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <img src="img/comunidade-whatsapp.jpg" alt="Card 3">
+                    <div class="news-text">
+                        <h4>Comunidade WhatsApp</h4>
+                        <p>Participe da nossa comunidade exclusiva no WhatsApp.</p>
+                    </div>
+                </div>
+
+                <div class="news-card" onclick="HeaderComponent.showSection('aulas-section')" style="cursor: pointer;">
+                    <img src="img/aprenda-operar.jpg" alt="Card 4">
+                    <div class="news-text">
+                        <h4>Aprenda a Operar</h4>
+                        <p>Confira as melhores estratégias para começar a operar.</p>
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Conteúdo Principal -->
+            <div class="dashboard-left">
+               
+                <!-- Carrossel -->
+                <div class="banner-carousel">
+                    <div class="carousel-track" id="carouselTrack">
+                        <a href="#">
+                            <picture>
+                                <source srcset="img/banner4.jpg" media="(max-width: 768px)">
+                                <img src="img/banner1.jpg" class="carousel-img" alt="Banner 1">
+                            </picture>
+                        </a>
+                        <a href="#">
+                            <picture>
+                                <source srcset="img/banner5.jpg" media="(max-width: 768px)">
+                                <img src="img/banner2.jpg" class="carousel-img" alt="Banner 2">
+                            </picture>
+                        </a>
+                        <a href="#">
+                            <picture>
+                                <source srcset="img/banner6.jpg" media="(max-width: 768px)">
+                                <img src="img/banner3.jpg" class="carousel-img" alt="Banner 3">
+                            </picture>
+                        </a>
+                    </div>
+                    <!-- Botões de navegação -->
+                    <button class="carousel-button prev" aria-label="Anterior">&#10094;</button>
+                    <button class="carousel-button next" aria-label="Próximo">&#10095;</button>
+
+                    <div class="carousel-indicators">
+                        <span class="carousel-indicator active"></span>
+                        <span class="carousel-indicator"></span>
+                        <span class="carousel-indicator"></span>
+                    </div>
+                </div>
+                <!-- Fim do Carrossel -->
+
+                <!-- Seção de Jogos -->
+                <div class="content-section">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h2>🎮 Jogos Disponíveis</h2>
+                        <div class="carousel-buttons">
+                            <button class="carousel-prev-games"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-next-games"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="games-grid" id="gamesCarousel">
+                       
+                        <div class="game-card" onclick="playGame(6243)">
+                            <img src="img/football-studio.avif" alt="Football Studio" class="game-img">
+                            <div class="game-overlay">
+                                <h3 class="game-title">Football Studio</h3>
+                            </div>
+                        </div>
+                        <div class="game-card" onclick="playGame('6244-br')">
+                            <img src="img/futebol-studioBR.avif" alt="Futebol Studio BR" class="game-img">
+                            <div class="game-overlay">
+                                <h3 class="game-title">Futebol Studio BR</h3>
+                            </div>
+                        </div>
+
+                        <div class="game-card" onclick="playGame('bacbo')">
+                            <img src="img/evolution.avif" alt="Evolution Gaming - BacBo" class="game-img">
+                            <div class="game-overlay">
+                                <h3 class="game-title">BacBo</h3>
+                            </div>
+                        </div>
+                        <div class="game-card" onclick="playGame('dragon-tiger')">
+                            <img src="img/dragon-tiger.avif" alt="Dragon Tiger" class="game-img">
+                            <div class="game-overlay">
+                                <h3 class="game-title">Dragon Tiger</h3>
+                            </div>
+                        </div>
+                                                <div class="game-card sala-sinais-card" onclick="showSalaSinaisGameModal()">
+                            <div class="sala-sinais-bg">
+                                <div class="sala-sinais-icon">
+                                    <i class="fas fa-broadcast-tower"></i>
+                                </div>
+                                <div class="sala-sinais-pulse"></div>
+                                <div class="sala-sinais-pulse sala-sinais-pulse-2"></div>
+                            </div>
+                            <div class="sala-sinais-badge">
+                                <span class="status-dot online"></span>
+                                <span>SINAIS</span>
+                            </div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">Sala de Sinais</h3>
+                            </div>
+                                                    </div>
+                    </div>
+                </div>
+                <!-- Fim Seção de Jogos -->
+
+                <!-- Links úteis -->
+                <div class="useful-links">
+                    <h2>Links úteis</h2>
+                    <div class="useful-links-grid">
+                        <a href="#" onclick="HeaderComponent.showSection('calculadora-section')"><div class="link-box highlight"><i class="fas fa-calculator"></i><span>Calculadora</span></div></a>
+                        <a href="#" onclick="HeaderComponent.showSection('aulas-section')"><div class="link-box"><i class="fas fa-graduation-cap"></i><span>Aulas</span></div></a>
+                        <a href="https://chat.whatsapp.com/CR961dWnrkg8cacCUW8zLj?mode=wwt" target="_blank"><div class="link-box"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></div></a>
+                        <a href="https://www.instagram.com/carloscampos_pro?igsh=OGw1Z2w2ZXo4ZDZ6&utm_source=qr" target="_blank"><div class="link-box"><i class="fab fa-instagram"></i><span>Instagram</span></div></a>
+                        <a href="https://t.me/Suporte_Carlos" target="_blank"><div class="link-box"><i class="fab fa-telegram"></i><span>Suporte</span></div></a>
+                    </div>
+                </div>
+                <!-- Fim dos Links úteis -->
+
+                <!-- Destaques com carrossel -->
+                <div class="content-section">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h2>Destaques</h2>
+                        <div class="carousel-buttons">
+                            <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="image-grid-horizontal" id="destaquesCarousel">
+                        <a href="#" onclick="HeaderComponent.showSection('aulas-section'); return false;"><img src="img/aprenda-operar.jpg" class="content-img" alt="Aprenda a Operar"></a>
+                        <a href="https://t.me/+faBne9nNnbpkZDkx" target="_blank"><img src="img/canal-live.jpg" class="content-img" alt="Canal de Lives"></a>
+                        <a href="https://chat.whatsapp.com/CR961dWnrkg8cacCUW8zLj?mode=wwt" target="_blank"><img src="img/comunidade-whatsapp.jpg" class="content-img" alt="Comunidade WhatsApp"></a>
+                        <a href="#" onclick="window.location.href='#noticias'"><img src="img/noticias.jpg" class="content-img" alt="Últimas Notícias"></a>
+                        <a href="#" onclick="window.location.href='#top-da-fama'"><img src="img/top-da-fama.jpg" class="content-img" alt="Top da Fama"></a>
+                    </div>
+                </div>
+                <!-- Fim Destaques com carrossel -->
+
+                <!-- Ferramentas -->
+                <div class="content-section">
+                    <h2>Melhores Ferramentas</h2>
+                    <div class="tools-grid">
+                        <a href="#" onclick="HeaderComponent.showSection('gestao-section'); return false;"><img src="img/gestao.jpg" class="content-img" alt="Gestão de Banca"></a>
+                        <a href="#" onclick="HeaderComponent.showSection('aulas-section'); return false;"><img src="img/simulador.jpg" class="content-img" alt="Aulas"></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim Ferramentas -->
+        </main>
+    </div>
+</section>
+            
+            
+<!-- Seção Calculadora -->
+<section id="calculadora-section" class="section">
+    <div class="calculadora-section">
+        <div class="calculator-container">
+            <!-- Header da Calculadora -->
+            <div class="calculator-header">
+                <div class="calculator-header-top">
+                    <button class="btn-back" onclick="voltarInicio()" title="Voltar ao início">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar
+                    </button>
+                    <h2>
+                        <i class="fas fa-cog"></i>
+                        Simulador
+                    </h2>
+                </div>
+                <p class="disclaimer">
+                    Essa planilha é meramente ilustrativa e não deve ser usada como referência para suas apostas. Nela não está contabilizado os dias de perdas.
+                </p>
+            </div>
+
+            <!-- Formulário da Calculadora -->
+            <div class="calculator-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bancaInicial" class="form-label">
+                            <i class="fas fa-wallet"></i>
+                            Insira o valor inicial de banca
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="text" 
+                                   id="bancaInicial" 
+                                   class="form-input currency-input" 
+                                   placeholder="R$ 0,00">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="metaDiaria" class="form-label">
+                            <i class="fas fa-percentage"></i>
+                            Selecione a % de meta diária
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" 
+                                   id="metaDiaria" 
+                                   class="form-input has-suffix" 
+                                   placeholder="10"
+                                   min="1"
+                                   max="100"
+                                   step="0.1">
+                            <span class="input-suffix">%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="jurosCompostos">
+                        <div class="checkmark"></div>
+                        <label for="jurosCompostos">Ativar juros compostos?</label>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary btn-calculate" onclick="calcularBanca()">
+                    <i class="fas fa-calculator"></i>
+                    Calcular
+                </button>
+            </div>
+
+            <!-- Tabela de Resultados -->
+            <div class="results-container" id="resultsContainer" style="display: none;">
+                <h3 class="results-title">
+                    <i class="fas fa-chart-line"></i>
+                    Projeção de 30 dias
+                </h3>
+                
+                <div class="table-wrapper">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Dia</th>
+                                <th>Saldo do Dia</th>
+                                <th>Meta Diária</th>
+                                <th>Valor Final</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsTableBody">
+                            <!-- Resultados serão inseridos aqui via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Resumo Final -->
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h4>Valor Final</h4>
+                            <p id="valorFinalResumo">R$ 0,00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-trending-up"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h4>Lucro Total</h4>
+                            <p id="lucroTotalResumo">R$ 0,00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h4>Crescimento</h4>
+                            <p id="crescimentoResumo">0%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+            
+            
+<!-- Seção Gestão de Banca -->
+<section id="gestao-section" class="section">
+    <div class="gestao-section">
+        <div class="gestao-container">
+            <!-- Header -->
+            <div class="gestao-header">
+                <div class="gestao-header-top">
+                    <button class="btn-back" onclick="voltarInicio()" title="Voltar ao início">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar
+                    </button>
+                    <h2>
+                        <i class="fas fa-chart-line"></i>
+                        Gestão de Banca
+                    </h2>
+                </div>
+                <p class="gestao-subtitle">
+                    Gerencie sua banca de forma profissional com controle diário de resultados
+                </p>
+            </div>
+
+            <!-- Formulário de Configuração Inicial -->
+            <div class="gestao-form-container" id="gestaoFormContainer">
+                <div class="gestao-form-card">
+                    <h3>
+                        <i class="fas fa-cog"></i>
+                        Configuração Inicial
+                    </h3>
+                    <p class="form-description">
+                        Defina os parâmetros da sua gestão para iniciar o controle de 30 dias
+                    </p>
+
+                    <form id="gestaoForm" class="gestao-form">
+                        <div class="form-group">
+                            <label for="gestao_banca_inicial" class="form-label">
+                                <i class="fas fa-wallet"></i>
+                                Banca Inicial <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="text" 
+                                       id="gestao_banca_inicial" 
+                                       class="form-input currency-input" 
+                                       placeholder="R$ 0,00"
+                                       required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gestao_meta_dia" class="form-label">
+                                    <i class="fas fa-bullseye"></i>
+                                    Meta do Dia (%) <span class="required">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input type="number" 
+                                           id="gestao_meta_dia" 
+                                           class="form-input has-suffix" 
+                                           placeholder="10"
+                                           min="1"
+                                           max="100"
+                                           step="0.5"
+                                           required>
+                                    <span class="input-suffix">%</span>
+                                </div>
+                                <small class="input-hint">Valor percentual que deseja ganhar por dia</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gestao_stop_loss" class="form-label">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Stop Loss (%) <span class="required">*</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input type="number" 
+                                           id="gestao_stop_loss" 
+                                           class="form-input has-suffix" 
+                                           placeholder="10"
+                                           min="1"
+                                           max="100"
+                                           step="0.5"
+                                           required>
+                                    <span class="input-suffix">%</span>
+                                </div>
+                                <small class="input-hint">Valor percentual máximo de perda por dia</small>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-calculate-gestao">
+                            <i class="fas fa-calculator"></i>
+                            Calcular Gestão
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Container dos Resultados -->
+            <div class="gestao-results-container" id="gestaoResultsContainer" style="display: none;">
+                <!-- Resumo da Projeção -->
+                <div class="gestao-projecao-card">
+                    <h3>
+                        <i class="fas fa-chart-pie"></i>
+                        Projeção de 30 Dias
+                    </h3>
+                    
+                    <div class="projecao-grid">
+                        <div class="projecao-item">
+                            <span class="projecao-label">Banca Inicial</span>
+                            <span class="projecao-value" id="projecao_banca_inicial">R$ 0,00</span>
+                        </div>
+                        
+                        <div class="projecao-item">
+                            <span class="projecao-label">Banca Final (projetada)</span>
+                            <span class="projecao-value projecao-highlight" id="projecao_banca_final">R$ 0,00</span>
+                        </div>
+                        
+                        <div class="projecao-item">
+                            <span class="projecao-label">Lucro/Prejuízo</span>
+                            <span class="projecao-value" id="projecao_lucro">R$ 0,00</span>
+                        </div>
+                        
+                        <div class="projecao-item">
+                            <span class="projecao-label">Rentabilidade</span>
+                            <span class="projecao-value" id="projecao_rentabilidade">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="projecao-actions">
+                        <button class="btn btn-secondary btn-sm" onclick="GestaoSection.editarConfiguracao()">
+                            <i class="fas fa-edit"></i>
+                            Editar Configuração
+                        </button>
+                        <button class="btn btn-danger btn-sm" onclick="GestaoSection.resetarGestao()">
+                            <i class="fas fa-redo"></i>
+                            Reiniciar Gestão
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cards dos 30 Dias -->
+                <div class="gestao-dias-header">
+                    <h3>
+                        <i class="fas fa-calendar-alt"></i>
+                        Controle Diário
+                    </h3>
+                    <p>Registre seus resultados diários clicando em Win ou Loss</p>
+                </div>
+
+                <div class="gestao-dias-grid" id="gestaoDiasGrid">
+                    <!-- Cards serão gerados dinamicamente pelo JavaScript -->
+                </div>
+
+                <!-- Estatísticas Finais -->
+                <div class="gestao-stats-card" id="gestaoStatsCard">
+                    <h3>
+                        <i class="fas fa-chart-bar"></i>
+                        Estatísticas da Gestão
+                    </h3>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-icon stat-win">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Dias de Lucro</span>
+                                <span class="stat-value" id="stat_total_wins">0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon stat-loss">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Dias de Perda</span>
+                                <span class="stat-value" id="stat_total_losses">0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon stat-pending">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Dias Pendentes</span>
+                                <span class="stat-value" id="stat_dias_pendentes">30</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon stat-ratio">
+                                <i class="fas fa-percent"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Taxa de Acerto</span>
+                                <span class="stat-value" id="stat_taxa_acerto">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="banca-atual-display">
+                        <span class="banca-atual-label">Banca Atual:</span>
+                        <span class="banca-atual-value" id="banca_atual_display">R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            
+            
+<!-- Seção Jogos -->
+<section id="jogos-section" class="section">
+    <div class="jogos-section">
+        <!-- Título da seção -->
+        <div class="jogos-header">
+            <h2>
+                <i class="fas fa-dice"></i>
+                Jogos Disponíveis
+            </h2>
+        </div>
+
+        <!-- Grade de Jogos (mesma da seção início) -->
+        <div class="games-grid futeboll-studio-grid">
+            <!-- Card - BacBo -->
+            <div class="game-card bacbo-card" data-game-id="bacbo" data-type="bacbo">
+                <div class="game-card-inner">
+                    <div class="game-image-text">
+                        <h3>BacBo</h3>
+                    </div>
+                    
+                    <div class="game-info">
+                        <div class="game-details">
+                            <p class="game-title">BacBo</p>
+                            <p class="game-provider">HistoricBet</p>
+                        </div>
+                    </div>
+                    
+                    <div class="game-overlay">
+                        <div class="overlay-bg"></div>
+                        <button class="play-btn" onclick="playGame('bacbo')">
+                            <i class="fas fa-play"></i>
+                            Jogar
+                        </button>
+                    </div>
+                    
+                    <div class="favorite-btn">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z" 
+                                  stroke="currentColor" 
+                                  stroke-width="1" 
+                                  fill="currentColor"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card - Sala de Sinais -->
+                        <div class="game-card sala-sinais-card" onclick="window.location.href='sala-sinais.php'">
+                <div class="game-card-inner">
+                    <div class="sala-sinais-bg">
+                        <div class="sala-sinais-icon">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <div class="sala-sinais-pulse"></div>
+                        <div class="sala-sinais-pulse sala-sinais-pulse-2"></div>
+                    </div>
+                    
+                    <div class="game-info">
+                        <div class="game-details">
+                            <p class="game-title">Sala de Sinais</p>
+                            <p class="game-provider">Ao Vivo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="game-overlay">
+                        <div class="overlay-bg"></div>
+                        <button class="play-btn">
+                            <i class="fas fa-signal"></i>
+                            Entrar
+                        </button>
+                    </div>
+                    
+                    <div class="sala-sinais-badge">
+                        <span class="status-dot online"></span>
+                        <span>LIVE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card - Football Studio -->
+            <div class="game-card futeboll-studio-card" data-game-id="6243" data-type="football-studio">
+                <div class="game-card-inner">
+                    <div class="game-image-text">
+                        <h3>Football Studio</h3>
+                    </div>
+                    
+                    <div class="game-info">
+                        <div class="game-details">
+                            <p class="game-title">Football Studio</p>
+                            <p class="game-provider">Evolution</p>
+                        </div>
+                    </div>
+                    
+                    <div class="game-overlay">
+                        <div class="overlay-bg"></div>
+                        <button class="play-btn" onclick="playGame(6243)">
+                            <i class="fas fa-play"></i>
+                            Jogar
+                        </button>
+                    </div>
+                    
+                    <div class="favorite-btn">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z" 
+                                  stroke="currentColor" 
+                                  stroke-width="1" 
+                                  fill="currentColor"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card - Futebol Studio BR -->
+            <div class="game-card futeboll-studio-card" data-game-id="6244-br" data-type="football-studio-br">
+                <div class="game-card-inner">
+                    <div class="game-image-text">
+                        <h3>Futebol Studio BR</h3>
+                    </div>
+                    
+                    <div class="game-info">
+                        <div class="game-details">
+                            <p class="game-title">Futebol Studio BR</p>
+                            <p class="game-provider">Evolution</p>
+                        </div>
+                    </div>
+                    
+                    <div class="game-overlay">
+                        <div class="overlay-bg"></div>
+                        <button class="play-btn" onclick="playGame('6244-br')">
+                            <i class="fas fa-play"></i>
+                            Jogar
+                        </button>
+                    </div>
+                    
+                    <div class="favorite-btn">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.083 5.104c.35-.8 1.485-.8 1.834 0l1.752 4.022a1 1 0 0 0 .84.597l4.463.342c.9.069 1.255 1.2.556 1.771l-3.33 2.723a1 1 0 0 0-.337 1.016l1.03 4.119c.214.858-.71 1.552-1.474 1.106l-3.913-2.281a1 1 0 0 0-1.008 0L7.583 20.8c-.764.446-1.688-.248-1.474-1.106l1.03-4.119A1 1 0 0 0 6.8 14.56l-3.33-2.723c-.698-.571-.342-1.702.557-1.771l4.462-.342a1 1 0 0 0 .84-.597l1.753-4.022Z" 
+                                  stroke="currentColor" 
+                                  stroke-width="1" 
+                                  fill="currentColor"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+            
+            
+<!-- Seção BacBo -->
+<section id="bacbo-section" class="section">
+    <div class="bacbo-section">
+        <!-- Header da seção -->
+        <div class="bacbo-header">
+            <div class="bacbo-header-top">
+                <button class="btn-back" onclick="voltarInicio()" title="Voltar ao início">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar
+                </button>
+                <h2>
+                    <i class="fas fa-dice-d20"></i>
+                    BacBo - HistoricBet
+                </h2>
+            </div>
+            <p class="game-description">
+                Acompanhe os resultados do BacBo em tempo real com análise de padrões e estatísticas avançadas.
+            </p>
+        </div>
+
+        <!-- Container principal -->
+        <div class="bacbo-container">
+            <!-- Painel de estatísticas -->
+            <div class="bacbo-stats-panel">
+                <div class="stats-header">
+                    <h3>
+                        <i class="fas fa-chart-bar"></i>
+                        Estatísticas em Tempo Real
+                    </h3>
+                    <div class="stats-controls">
+                        <button class="btn-refresh" onclick="loadBacboHistory()" title="Atualizar dados">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                        <div class="auto-refresh-toggle">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="bacboAutoRefresh" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span class="toggle-label">Auto-refresh</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bacbo-statistics">
+                    <!-- Estatísticas serão inseridas aqui via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Grid de resultados -->
+            <div class="bacbo-results-container">
+                <div class="results-header">
+                    <h3>
+                        <i class="fas fa-history"></i>
+                        Últimos Resultados
+                    </h3>
+                    <div class="results-info">
+                        <span class="total-results">Total: <span id="bacboTotalResults">0</span></span>
+                        <span class="last-update">Última atualização: <span id="bacboLastUpdate">--:--:--</span></span>
+                    </div>
+                </div>
+                
+                <!-- Loading -->
+                <div class="bacbo-loading" style="display: none;">
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Carregando dados do BacBo...</span>
+                    </div>
+                </div>
+                
+                <!-- Error -->
+                <div class="bacbo-error" style="display: none;">
+                    <!-- Mensagens de erro serão inseridas aqui -->
+                </div>
+                
+                <!-- Grid de resultados -->
+                <div class="bacbo-results-grid">
+                    <!-- Resultados serão inseridos aqui via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Painel de informações -->
+        <div class="bacbo-info-panel">
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="info-content">
+                    <h4>Como funciona o BacBo?</h4>
+                    <p>O BacBo é um jogo de dados onde você pode apostar em Banker (Vermelho), Player (Azul) ou Tie (Amarelo). Os dados determinam o vencedor de cada rodada.</p>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="info-content">
+                    <h4>Legenda de Cores</h4>
+                    <div class="color-legend">
+                        <div class="legend-item">
+                            <span class="color-indicator red">🔴</span>
+                            <span>Banker (Vermelho)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-indicator blue">🔵</span>
+                            <span>Player (Azul)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-indicator yellow">🟡</span>
+                            <span>Tie (Amarelo)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="info-content">
+                    <h4>Atualização Automática</h4>
+                    <p>Os dados são atualizados automaticamente a cada 30 segundos para manter você sempre informado sobre os últimos resultados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+            
+            
+<!-- Seção Aulas -->
+<section id="aulas-section" class="section">
+    <div class="aulas-section">
+        <div class="aulas-container">
+            <!-- Header das Aulas -->
+            <div class="aulas-header">
+                <div class="aulas-header-top">
+                    <button class="btn-back" onclick="voltarInicio()" title="Voltar ao início">
+                        <i class="fas fa-arrow-left"></i>
+                        Voltar
+                    </button>
+                    <h2>
+                        <i class="fas fa-graduation-cap"></i>
+                        Aulas
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Loading state -->
+            <div class="aulas-loading" id="aulas-loading">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Carregando aulas...</p>
+                </div>
+            </div>
+            
+            <!-- Error state -->
+            <div class="aulas-error" id="aulas-error" style="display: none;">
+                <div class="error-message">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>Erro ao carregar aulas. Tente novamente.</p>
+                    <button class="btn-retry" onclick="AulasSection.loadAulas()">
+                        <i class="fas fa-redo"></i>
+                        Tentar novamente
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Empty state -->
+            <div class="aulas-empty" id="aulas-empty" style="display: none;">
+                <div class="empty-message">
+                    <i class="fas fa-graduation-cap"></i>
+                    <p>Nenhuma aula disponível no momento.</p>
+                </div>
+            </div>
+
+            <!-- Seção Aulas Gratuitas -->
+            <div class="aulas-section-group" id="aulas-free-section" style="display: none;">
+                <div class="aulas-section-header">
+                    <h3><i class="fas fa-unlock"></i> Aulas Gratuitas</h3>
+                    <p>Conteúdo disponível para todos os usuários</p>
+                </div>
+                <div class="aulas-grid" id="aulas-grid-free">
+                    <!-- Aulas gratuitas serão inseridas aqui -->
+                </div>
+            </div>
+
+            <!-- Seção Aulas Premium -->
+            <div class="aulas-section-group" id="aulas-premium-section" style="display: none;">
+                <div class="aulas-section-header">
+                    <h3><i class="fas fa-crown"></i> Aulas Premium</h3>
+                    <p>Conteúdo exclusivo para assinantes Premium</p>
+                </div>
+                <div class="aulas-grid" id="aulas-grid-premium">
+                    <!-- Aulas premium serão inseridas aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal de Vídeo -->
+<div id="aulaModal" class="modal aula-modal">
+    <div class="modal-content aula-modal-content">
+        <div class="modal-header">
+            <h3 id="modalAulaTitle">Título da Aula</h3>
+            <button class="modal-close" onclick="closeAulaModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="video-container">
+                <iframe id="modalVideo" 
+                        src="" 
+                        frameborder="0" 
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+            </div>
+            <div class="aula-info">
+                <p id="modalAulaDescription">Descrição da aula</p>
+            </div>
+        </div>
+    </div>
+</div>
+            
+            
+<!-- Seção de Jogo (iframe) -->
+<section id="game-session" class="section">
+    <div class="game-session">
+        <div class="game-session-header">
+            <h2 id="gameSessionTitle">
+            <i class="fas fa-gamepad"></i>
+                Carregando Jogo...
+            </h2>
+            <button class="btn btn-secondary" id="closeGameBtn">
+                <i class="fas fa-times"></i>
+                Fechar Jogo
+            </button>
+        </div>
+        
+        <!-- Container principal do jogo com histórico -->
+        <div id="gameMainContainer" style="display: flex; flex-direction: column; gap: 1rem;">
+            <!-- Container do histórico (mobile - acima do jogo) -->
+            <div id="historyContainerMobile" class="history-container mobile-only" style="display: none;">
+                <div class="history-header">
+                    <h3><i class="fas fa-history"></i> Histórico da Roleta</h3>
+                    <button id="closeHistoryMobile" class="close-history-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Container de Sugestão Personalizada (Mobile) -->
+                <div class="analises-container mobile-analises">
+                    <div class="analises-header">
+                        <h4><i class="fas fa-magic"></i> Sugestão Personalizada</h4>
+                    </div>
+                    
+                    <!-- Sugestão personalizada mobile -->
+                    <div class="analises-content">
+                        <div id="suggestionPersonalizadaMobile" class="suggestion-container">
+                            <div id="suggestionEstrategiaMobile" class="suggestion-item suggestion-searching">
+                                🎯 Entrada Sugerida: Buscando padrão...
+                            </div>
+                            <div id="suggestionCoresMobile" class="suggestion-item suggestion-searching" style="display: none;">
+                                🎯 Sugestão Cores: Buscando padrão...
+                            </div>
+                            <div id="suggestionCartasMobile" class="suggestion-item suggestion-searching" style="display: none;">
+                                🎯 Sugestão Números: Buscando padrão...
+                            </div>
+                            <div id="suggestionIAMobile" class="suggestion-item suggestion-searching" style="display: none;">
+                                🎯 Sugestão IA: Buscando padrão...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Container de Estratégia Personalizada (Mobile) -->
+                <div class="analises-container mobile-analises" id="estrategiaPersonalizadaMobile">
+                    <div class="analises-header">
+                        <h4><i class="fas fa-user-cog"></i> Estratégia Personalizada</h4>
+                        <button class="add-strategy-btn" id="addCustomStrategyMobile" title="Criar nova estratégia">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Lista de estratégias personalizadas mobile -->
+                    <div class="analises-content">
+                        <div id="customStrategiesListMobile" class="custom-strategies-list">
+                            <div class="no-strategies-message">
+                                <i class="fas fa-info-circle"></i>
+                                <p>Nenhuma estratégia personalizada criada ainda.</p>
+                                <p>Clique no <i class="fas fa-plus"></i> para criar sua primeira estratégia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campos de configuração para mobile -->
+                <div class="config-fields-container mobile-config-fields">
+                    <div class="config-field">
+                        <label for="resultadosMobile">Resultados</label>
+                        <input type="text" id="resultadosMobile" class="config-input" value="500" maxlength="4" placeholder="500">
+                    </div>
+                    <div class="config-field">
+                        <label for="numCartasMobile">Nº de rodadas</label>
+                        <input type="text" id="numCartasMobile" class="config-input" value="4" maxlength="2" placeholder="4">
+                    </div>
+                    <div class="config-field">
+                        <label for="percentAcertoMobile">% de Acerto</label>
+                        <input type="text" id="percentAcertoMobile" class="config-input" value="90" maxlength="3" placeholder="90">
+                    </div>
+                    <div class="config-field">
+                        <label for="ocorrenciaMinMobile">Ocorrências Mín</label>
+                        <input type="text" id="ocorrenciaMinMobile" class="config-input" value="15" maxlength="3" placeholder="15">
+                    </div>
+                    <div class="config-field">
+                        <label for="galeNivelMobile">Nível de Gale</label>
+                        <select id="galeNivelMobile" class="config-input config-select">
+                            <option value="SG">SG (Sem Gale)</option>
+                            <option value="G1">G1 (Gale 1)</option>
+                            <option value="G2" selected>G2 (Gale 2)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Container de Estatísticas (Mobile) -->
+                <div class="analises-container mobile-analises">
+                    <div class="analises-header">
+                        <h4><i class="fas fa-chart-bar"></i> Estatísticas</h4>
+                    </div>
+                    <div class="analises-content">
+                        <div class="stats-grid">
+                            <div class="stats-item">
+                                <span class="label">Máxima de 🔴:</span>
+                                <span class="value" id="maxVermelhoMobile">0</span>
+                            </div>
+                            <div class="stats-item">
+                                <span class="label">Máxima de 🔵:</span>
+                                <span class="value" id="maxAzulMobile">0</span>
+                            </div>
+                            <div class="stats-item">
+                                <span class="label">Máxima de 🟡:</span>
+                                <span class="value" id="maxAmareloMobile">0</span>
+                            </div>
+                            <div class="stats-item">
+                                <span class="label">Máxima sem 🟡:</span>
+                                <span class="value" id="maxSemAmareloMobile">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Container de Análises de Cores (Mobile) -->
+                <div class="analises-container mobile-analises">
+                    <div class="analises-header">
+                        <h4><i class="fas fa-palette"></i> Análises de Cores</h4>
+                    </div>
+                    
+                    <!-- Resultados das análises mobile -->
+                    <div class="analises-content">
+                        <div id="analisesResultadosMobile" class="analises-resultados"></div>
+                        <div class="analises-loading" id="analisesLoadingMobile" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Analisando...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Container de Análises de Cartas (Mobile) -->
+                <div class="analises-container mobile-analises">
+                    <div class="analises-header">
+                        <h4><i class="fas fa-clone"></i> Análises de números</h4>
+                    </div>
+                    
+                    <!-- Resultados das análises de cartas mobile -->
+                    <div class="analises-content">
+                        <div id="analisesCartasResultadosMobile" class="analises-resultados"></div>
+                        <div class="analises-loading" id="analisesCartasLoadingMobile" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Analisando números...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Container de Estratégias IA (Mobile) -->
+                <div class="analises-container mobile-analises">
+                    <div class="analises-header">
+                        <h4><i class="fas fa-robot"></i> Estratégias IA</h4>
+                    </div>
+                    
+                    <!-- Resultados das estratégias IA mobile -->
+                    <div class="analises-content">
+                        <div id="estrategiasIAResultadosMobile" class="analises-resultados"></div>
+                        <div class="analises-loading" id="estrategiasIALoadingMobile" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Gerando estratégias...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-content">
+                    <div id="historyGridMobile" class="history-grid mobile-grid"></div>
+                    <div class="history-loading" id="historyLoadingMobile" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Carregando...
+                    </div>
+                    <button id="loadMoreMobile" class="load-more-btn" style="display: none;">
+                        Carregar Mais
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Container do jogo e histórico (desktop) -->
+            <div id="gameAndHistoryContainer" style="display: flex; gap: 1rem;">
+                <!-- Container do histórico (desktop - lado esquerdo) -->
+                <div id="historyContainerDesktop" class="history-container desktop-only" style="display: none;">
+                    <div class="history-header">
+                        <h3><i class="fas fa-history"></i> Histórico</h3>
+                    </div>
+
+                    <!-- Container de Sugestão Personalizada (Desktop) -->
+                    <div class="analises-container">
+                        <div class="analises-header">
+                            <h4><i class="fas fa-magic"></i> Sugestão Personalizada</h4>
+                        </div>
+                        
+                        <!-- Sugestão personalizada desktop -->
+                        <div class="analises-content">
+                            <div id="suggestionPersonalizadaDesktop" class="suggestion-container">
+                                <div id="suggestionEstrategiaDesktop" class="suggestion-item suggestion-searching">
+                                    🎯 Entrada Sugerida: Buscando padrão...
+                                </div>
+                                <div id="suggestionCoresDesktop" class="suggestion-item suggestion-searching" style="display: none;">
+                                    🎯 Sugestão Cores: Buscando padrão...
+                                </div>
+                                <div id="suggestionCartasDesktop" class="suggestion-item suggestion-searching" style="display: none;">
+                                    🎯 Sugestão Números: Buscando padrão...
+                                </div>
+                                <div id="suggestionIADesktop" class="suggestion-item suggestion-searching" style="display: none;">
+                                    🎯 Sugestão IA: Buscando padrão...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Container de Estratégia Personalizada (Desktop) -->
+                    <div class="analises-container" id="estrategiaPersonalizadaDesktop">
+                        <div class="analises-header">
+                            <h4><i class="fas fa-user-cog"></i> Estratégia Personalizada</h4>
+                            <button class="add-strategy-btn" id="addCustomStrategyDesktop" title="Criar nova estratégia">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Lista de estratégias personalizadas -->
+                        <div class="analises-content">
+                            <div id="customStrategiesListDesktop" class="custom-strategies-list">
+                                <div class="no-strategies-message">
+                                    <i class="fas fa-info-circle"></i>
+                                    <p>Nenhuma estratégia personalizada criada ainda.</p>
+                                    <p>Clique no <i class="fas fa-plus"></i> para criar sua primeira estratégia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campos de configuração para desktop -->
+                    <div class="config-fields-container desktop-config-fields">
+                        <div class="config-field">
+                            <label for="resultadosDesktop">Resultados</label>
+                            <input type="text" id="resultadosDesktop" class="config-input" value="500" maxlength="4" placeholder="500">
+                        </div>
+                        <div class="config-field">
+                            <label for="numCartasDesktop">Nº de rodadas</label>
+                            <input type="text" id="numCartasDesktop" class="config-input" value="4" maxlength="2" placeholder="4">
+                        </div>
+                        <div class="config-field">
+                            <label for="percentAcertoDesktop">% de Acerto</label>
+                            <input type="text" id="percentAcertoDesktop" class="config-input" value="90" maxlength="3" placeholder="90">
+                        </div>
+                        <div class="config-field">
+                            <label for="ocorrenciaMinDesktop">Ocorrências Mín</label>
+                            <input type="text" id="ocorrenciaMinDesktop" class="config-input" value="15" maxlength="3" placeholder="15">
+                        </div>
+                        <div class="config-field">
+                            <label for="galeNivelDesktop">Nível de Gale</label>
+                            <select id="galeNivelDesktop" class="config-input config-select">
+                                <option value="SG">SG (Sem Gale)</option>
+                                <option value="G1">G1 (Gale 1)</option>
+                                <option value="G2" selected>G2 (Gale 2)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Container de Estatísticas -->
+                    <div class="analises-container">
+                        <div class="analises-header">
+                            <h4><i class="fas fa-chart-bar"></i> Estatísticas</h4>
+                        </div>
+                        <div class="analises-content">
+                            <div class="stats-grid">
+                                <div class="stats-item">
+                                    <span class="label">Máxima de 🔴:</span>
+                                    <span class="value" id="maxVermelho">0</span>
+                                </div>
+                                <div class="stats-item">
+                                    <span class="label">Máxima de 🔵:</span>
+                                    <span class="value" id="maxAzul">0</span>
+                                </div>
+                                <div class="stats-item">
+                                    <span class="label">Máxima de 🟡:</span>
+                                    <span class="value" id="maxAmarelo">0</span>
+                                </div>
+                                <div class="stats-item">
+                                    <span class="label">Máxima sem 🟡:</span>
+                                    <span class="value" id="maxSemAmarelo">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Container de Análises de Cores -->
+                    <div class="analises-container">
+                        <div class="analises-header">
+                            <h4><i class="fas fa-palette"></i> Análises de Cores</h4>
+                        </div>
+                        
+                        <!-- Resultados das análises -->
+                        <div class="analises-content">
+                            <div id="analisesResultadosDesktop" class="analises-resultados"></div>
+                            <div class="analises-loading" id="analisesLoadingDesktop" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Analisando...
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Container de Análises de Cartas -->
+                    <div class="analises-container">
+                        <div class="analises-header">
+                            <h4><i class="fas fa-clone"></i> Análises de números</h4>
+                        </div>
+                        
+                        <!-- Resultados das análises de cartas -->
+                        <div class="analises-content">
+                            <div id="analisesCartasResultadosDesktop" class="analises-resultados"></div>
+                            <div class="analises-loading" id="analisesCartasLoadingDesktop" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Analisando números...
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Container de Estratégias IA -->
+                    <div class="analises-container">
+                        <div class="analises-header">
+                            <h4><i class="fas fa-robot"></i> Estratégias IA</h4>
+                        </div>
+                        
+                        <!-- Resultados das estratégias IA -->
+                        <div class="analises-content">
+                            <div id="estrategiasIAResultadosDesktop" class="analises-resultados"></div>
+                            <div class="analises-loading" id="estrategiasIALoadingDesktop" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Gerando estratégias...
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="history-content">
+                        <div id="historyGridDesktop" class="history-grid desktop-grid"></div>
+                        <div class="history-loading" id="historyLoadingDesktop" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Carregando...
+                        </div>
+                        <button id="loadMoreDesktop" class="load-more-btn" style="display: none;">
+                            Carregar Mais
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Container do iframe do jogo com botão abaixo -->
+                <div style="flex: 1; display: flex; flex-direction: column;">
+                    <!-- Container do iframe do jogo -->
+                    <div class="game-iframe-container" style="flex: 1;">
+                        <!-- Status do jogo centralizado no iframe -->
+                        <div class="game-status" id="gameStatus" style="color: white !important;">
+                            Inicializando jogo...
+                        </div>
+                        <iframe 
+                            id="gameIframe" 
+                            src="about:blank"
+                            frameborder="0"
+                            allowfullscreen
+                            allow="autoplay; fullscreen; microphone; camera">
+                        </iframe>
+                    </div>
+                    
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+            <!-- Seção de Jogo (iframe) removida - agora em includes/sections/game-session.php -->
+        </div>
+    </main>
+
+    
+<!-- Modal de Saque (Temporário) -->
+<div id="withdrawModal" class="modal">
+    <div class="modal-content withdraw-modal-content">
+        <div class="modal-header">
+            <h3>
+                <i class="fas fa-minus-circle"></i>
+                Saque - GoldeBet
+            </h3>
+            <button class="modal-close" id="closeWithdrawModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body withdraw-modal-body">
+            <div id="withdrawStatus" class="withdraw-status">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <p>Carregando página de saque...</p>
+            </div>
+            <iframe 
+                id="withdrawIframe" 
+                class="withdraw-iframe"
+                src="about:blank"
+                frameborder="0"
+                allow="autoplay; fullscreen; microphone; camera; payment; encrypted-media">
+            </iframe>
+        </div>
+    </div>
+</div>
+
+    
+<!-- Modal de Depósito -->
+<div id="depositModal" class="modal">
+    <div class="modal-content deposit-modal-content">
+        <div class="modal-header">
+            <h3>
+                <i class="fas fa-plus-circle"></i>
+                Depósito - Esportiva bet
+            </h3>
+            <button class="modal-close" id="closeDepositModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body deposit-modal-body">
+            <!-- Formulário de Depósito -->
+            <div id="depositForm" class="deposit-form">
+                <div class="deposit-input-group">
+                    <label for="depositAmount">
+                        <i class="fas fa-dollar-sign"></i>
+                        Valor do Depósito (R$)
+                    </label>
+                    <input 
+                        type="text" 
+                        id="depositAmount" 
+                        placeholder="R$ 10,00"
+                        class="deposit-input"
+                        maxlength="15"
+                    >
+                    <small class="deposit-help">Valor mínimo: R$ 10,00</small>
+                </div>
+                
+                <button id="generateDepositBtn" class="deposit-generate-btn">
+                    <i class="fas fa-qrcode"></i>
+                    Gerar PIX para Depósito
+                </button>
+                
+                <div id="depositStatus" class="deposit-status" style="display: none;">
+                    Aguardando...
+                </div>
+            </div>
+
+            <!-- Resultado do Depósito -->
+            <div id="depositResult" class="deposit-result" style="display: none;">
+                <div class="deposit-success">
+                    <h4>
+                        <i class="fas fa-check-circle"></i>
+                        PIX Gerado com Sucesso!
+                    </h4>
+                    
+                    <!-- Valor do Depósito -->
+                    <div id="depositAmountDisplay" class="deposit-amount-display">
+                        <div class="amount-label">Valor do Depósito:</div>
+                        <div class="amount-value" id="depositAmountValue">R$ 0,00</div>
+                    </div>
+                    
+                    <!-- QR Code -->
+                    <div class="qr-code-container">
+                        <img id="depositQrImage" alt="QR Code PIX" class="qr-code-image">
+                    </div>
+                    
+                    <!-- Código PIX -->
+                    <div class="pix-code-container">
+                        <label>Código PIX (Copiar e Colar):</label>
+                        <div class="pix-code-wrapper">
+                            <textarea 
+                                id="depositCodeOutput" 
+                                readonly
+                                class="pix-code-textarea"
+                                placeholder="Código PIX aparecerá aqui..."
+                            ></textarea>
+                            <button id="copyPixBtn" class="copy-pix-btn" disabled>
+                                <i class="fas fa-copy"></i>
+                                Copiar
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Instruções simplificadas -->
+                    <div class="deposit-instructions">
+                        <p style="text-align: center; color: var(--text-gray); font-size: 14px; margin: 15px 0;">
+                            <i class="fas fa-info-circle"></i>
+                            Escaneie o QR Code ou copie o código PIX no seu app bancário
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+<!-- Modal de Estratégia Personalizada -->
+<div id="estrategiaModal" class="modal-overlay" style="display: none;">
+    <div class="modal-container estrategia-modal">
+        <div class="modal-header">
+            <h3 id="modalTitle">
+                <i class="fas fa-user-cog"></i>
+                Nova Estratégia Personalizada
+            </h3>
+            <button class="modal-close" id="closeEstrategiaModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="modal-body">
+            <!-- Campo Nome -->
+            <div class="form-group">
+                <label for="estrategiaNome">
+                    <i class="fas fa-tag"></i>
+                    Nome da Estratégia
+                </label>
+                <input type="text" id="estrategiaNome" class="form-input" placeholder="Digite o nome da estratégia" maxlength="50">
+            </div>
+            
+            <!-- Seletor de Jogo -->
+            <div class="form-group">
+                <label for="estrategiaJogo">
+                    <i class="fas fa-gamepad"></i>
+                    Jogo
+                </label>
+                <select id="estrategiaJogo" class="form-input">
+                    <option value="1">Bac Bo (Vermelho/Azul/Amarelo)</option>
+                    <option value="2">Football Studio (Vermelho/Azul/Amarelo)</option>
+                    <option value="3">Futebol Studio BR (Verde/Azul/Amarelo)</option>
+                    <option value="4">Dragon Tiger (Vermelho/Amarelo/Verde)</option>
+                </select>
+                <small style="color: var(--text-muted); font-size: 12px; margin-top: 4px;">
+                    As cores dos botões abaixo mudarão conforme o jogo selecionado
+                </small>
+            </div>
+            
+            <!-- Seções de Padrões -->
+            <div class="form-group">
+                <div class="pattern-sections">
+                    <!-- Seção Adicionar ao Padrão -->
+                    <div class="pattern-section">
+                        <label>
+                            <i class="fas fa-palette"></i>
+                            Adicionar ao Padrão
+                        </label>
+                        <div class="color-buttons">
+                            <button class="color-btn red" data-color="B" title="Banker (Vermelho)">
+                                <span class="color-square red"></span>
+                                <span class="color-label">B</span>
+                            </button>
+                            <button class="color-btn blue" data-color="P" title="Player (Azul)">
+                                <span class="color-square blue"></span>
+                                <span class="color-label">P</span>
+                            </button>
+                            <button class="color-btn yellow" data-color="T" title="Tie (Amarelo)">
+                                <span class="color-square yellow"></span>
+                                <span class="color-label">T</span>
+                            </button>
+                        </div>
+                        <div class="number-input-group">
+                            <label for="patternNumber">
+                                <i class="fas fa-hashtag"></i>
+                                Número (opcional)
+                            </label>
+                            <input type="number" id="patternNumber" class="form-input number-input" placeholder="Ex: 8" min="1" max="99">
+                        </div>
+                    </div>
+                    
+                    <!-- Seção Entrar Em -->
+                    <div class="pattern-section">
+                        <label>
+                            <i class="fas fa-magic"></i>
+                            Entrar Em
+                        </label>
+                        <div class="special-buttons">
+                            <button class="special-btn" data-pattern="PLAYER-E" title="Player Especial">
+                                <span class="pattern-square diagonal-blue"></span>
+                                <span class="special-label">Player-E</span>
+                            </button>
+                            <button class="special-btn" data-pattern="BANKER-E" title="Banker Especial">
+                                <span class="pattern-square diagonal-red"></span>
+                                <span class="special-label">Banker-E</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Preview do Padrão -->
+            <div class="form-group">
+                <label>
+                    <i class="fas fa-eye"></i>
+                    Preview do Padrão
+                </label>
+                <div class="pattern-preview" id="patternPreview">
+                    <div class="preview-placeholder">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Clique nos botões acima para criar seu padrão</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="modal-footer">
+            <div class="modal-actions">
+                <button class="btn btn-danger" id="removeLast">
+                    <i class="fas fa-backspace"></i>
+                    Remover Último
+                </button>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancelEstrategia">
+                    <i class="fas fa-times"></i>
+                    Cancelar
+                </button>
+                <button class="btn btn-primary" id="saveEstrategia">
+                    <i class="fas fa-save"></i>
+                    Salvar Estratégia
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* =============
+   ESTILOS BASE DE MODAL
+   ============= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+.modal-container {
+    background: #2a2a2a !important;
+    border: 2px solid var(--primary-gold);
+    border-radius: 8px;
+    box-shadow: 
+        0 20px 40px var(--shadow-dark),
+        0 0 20px rgba(253, 65, 2, 0.2);
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    height: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-gold);
+    background: #2a2a2a !important;
+    position: relative;
+    z-index: 10; /* Aumentado para garantir que fique acima do body */
+    flex-shrink: 0; /* Impede que o header encolha */
+    order: 0; /* Garante ordem no flexbox */
+}
+
+.modal-header h3 {
+    color: var(--text-light);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-header h3 i {
+    color: var(--secondary-gold);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--secondary-gold);
+}
+
+.modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #2a2a2a !important;
+    min-height: 0; /* Permite que o flex funcione corretamente */
+    position: relative;
+    z-index: 0; /* Garante que está abaixo do header */
+    margin-top: 0; /* Garante que começa logo após o header */
+}
+
+.modal-footer {
+    padding: 20px 24px;
+    border-top: 1px solid var(--border-gold);
+    background: #2a2a2a !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0; /* Impede que o footer encolha */
+}
+
+/* =============
+   MODAL ESTRATÉGIA
+   ============= */
+.estrategia-modal {
+    max-width: 600px;
+    width: 90%;
+}
+
+.estrategia-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+    border-radius: 8px 8px 0 0;
+    z-index: 1;
+}
+
+/* Forçar fundo cinza em todos os elementos do modal, exceto quadradinhos coloridos */
+.estrategia-modal *:not(.color-square):not(.pattern-square) {
+    background-color: transparent !important;
+}
+
+.estrategia-modal,
+.estrategia-modal .modal-container,
+.estrategia-modal .modal-header,
+.estrategia-modal .modal-body,
+.estrategia-modal .modal-footer {
+    background: #2a2a2a !important;
+}
+
+.estrategia-modal .modal-body {
+    padding: 24px;
+    padding-top: 250px; /* Garante espaço no topo */
+}
+
+/* Garantir que o primeiro form-group não fique escondido */
+.estrategia-modal .modal-body > .form-group:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    position: relative;
+    z-index: 0;
+}
+
+/* Garantir que o campo nome seja visível */
+#estrategiaNome {
+    position: relative;
+    z-index: 0;
+}
+
+/* =============
+   FORMULÁRIOS
+   ============= */
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .pattern-sections {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    .pattern-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group label i {
+    color: var(--secondary-gold);
+    font-size: 14px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-gold);
+    border-radius: var(--radius-md);
+    background: var(--secondary-dark) !important;
+    color: var(--text-light);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--secondary-gold);
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+.form-input::placeholder {
+    color: var(--text-muted);
+}
+
+/* =============
+   BOTÕES
+   ============= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    border: 2px solid #ffd700;
+    color: #1a1a1a;
+    font-weight: 600;
+    text-shadow: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ffed4e, #ffd700);
+    border-color: #ffed4e;
+    color: #1a1a1a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+}
+
+.btn-primary:active {
+    background: linear-gradient(135deg, #e6c200, #ffd700);
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(255, 215, 0, 0.3);
+}
+
+.btn-secondary {
+    background: #3a3a3a !important;
+    border: 2px solid #555;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.btn-secondary:hover {
+    background: #4a4a4a !important;
+    border-color: #666;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    border: 2px solid #dc3545;
+    color: white;
+    font-weight: 600;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #c82333, #dc3545);
+    border-color: #c82333;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+
+/* Botões de Cores */
+.color-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.number-input-group {
+    margin-top: 12px;
+}
+
+.number-input-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.number-input-group label i {
+    color: var(--secondary-gold);
+    font-size: 14px;
+}
+
+.number-input {
+    width: 120px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-gold);
+    border-radius: var(--radius-md);
+    background: var(--secondary-dark) !important;
+    color: var(--text-light);
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.number-input:focus {
+    outline: none;
+    border-color: var(--secondary-gold);
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+.color-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: #2a2a2a !important;
+    border: 2px solid var(--border-gold);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
+
+.color-btn:hover {
+    border-color: var(--secondary-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+}
+
+.color-btn.active {
+    border-color: var(--secondary-gold);
+    background: rgba(255, 215, 0, 0.1);
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.3);
+}
+
+.color-square {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.color-square.red {
+    background-color: #dc3545 !important;
+}
+
+.color-square.blue {
+    background-color: #007bff !important;
+}
+
+.color-square.yellow {
+    background-color: #ffc107 !important;
+}
+
+.color-square.green {
+    background-color: #28a745 !important;
+}
+
+/* Quadradinhos diagonais nos botões especiais */
+.special-btn .pattern-square.diagonal-red {
+    background: linear-gradient(135deg, #dc3545 0%, #dc3545 70%, #ffc107 70%, #ffc107 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.special-btn .pattern-square.diagonal-red::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background-color: #ffc107;
+    transform: skewX(-15deg);
+    transform-origin: top right;
+}
+
+.special-btn .pattern-square.diagonal-blue {
+    background: linear-gradient(135deg, #007bff 0%, #007bff 70%, #ffc107 70%, #ffc107 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.special-btn .pattern-square.diagonal-blue::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background-color: #ffc107;
+    transform: skewX(-15deg);
+    transform-origin: top right;
+}
+
+.special-btn .pattern-square.diagonal-green {
+    background: linear-gradient(135deg, #28a745 0%, #28a745 70%, #ffc107 70%, #ffc107 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.special-btn .pattern-square.diagonal-green::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background-color: #ffc107;
+    transform: skewX(-15deg);
+    transform-origin: top right;
+}
+
+.special-btn .pattern-square.diagonal-yellow {
+    background: linear-gradient(135deg, #ffc107 0%, #ffc107 70%, #ffc107 70%, #ffc107 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.special-btn .pattern-square.diagonal-yellow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background-color: #ffc107; /* Amarelo padrão para Bac Bo e Football Studio */
+    transform: skewX(-15deg);
+    transform-origin: top right;
+}
+
+/* =============
+   ESTILOS ESPECÍFICOS POR JOGO NO MODAL
+   ============= */
+
+/* Dragon Tiger: Tie = Verde, então todas as diagonais devem ser verdes */
+.game-dragon-tiger .special-btn .pattern-square.diagonal-red {
+    background: linear-gradient(135deg, #dc3545 0%, #dc3545 70%, #28a745 70%, #28a745 100%) !important;
+}
+
+.game-dragon-tiger .special-btn .pattern-square.diagonal-red::after {
+    background-color: #28a745 !important; /* Verde - Tie no Dragon Tiger */
+}
+
+.game-dragon-tiger .special-btn .pattern-square.diagonal-yellow {
+    background: linear-gradient(135deg, #ffc107 0%, #ffc107 70%, #28a745 70%, #28a745 100%) !important;
+}
+
+.game-dragon-tiger .special-btn .pattern-square.diagonal-yellow::after {
+    background-color: #28a745 !important; /* Verde - Tie no Dragon Tiger */
+}
+
+.game-dragon-tiger .special-btn .pattern-square.diagonal-blue::after {
+    background-color: #28a745 !important; /* Verde - Tie no Dragon Tiger */
+}
+
+.game-dragon-tiger .special-btn .pattern-square.diagonal-green::after {
+    background-color: #28a745 !important; /* Verde - Tie no Dragon Tiger */
+}
+
+/* Estilos para o preview do padrão - garantir que pattern-square tenha estilos base */
+.pattern-preview .pattern-square {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    margin: 0 3px;
+    text-align: center;
+    line-height: 24px;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    vertical-align: middle;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.pattern-preview .pattern-square.red {
+    background-color: #dc3545;
+}
+
+.pattern-preview .pattern-square.blue {
+    background-color: #007bff;
+}
+
+.pattern-preview .pattern-square.yellow {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.pattern-preview .pattern-square.green {
+    background-color: #28a745;
+}
+
+/* Diagonais no preview - padrão (Bac Bo e Football Studio) */
+.pattern-preview .pattern-square.diagonal-red,
+.pattern-preview .pattern-square.diagonal-blue,
+.pattern-preview .pattern-square.diagonal-yellow,
+.pattern-preview .pattern-square.diagonal-green {
+    position: relative;
+    overflow: hidden;
+}
+
+.pattern-preview .pattern-square.diagonal-red::after,
+.pattern-preview .pattern-square.diagonal-blue::after,
+.pattern-preview .pattern-square.diagonal-yellow::after,
+.pattern-preview .pattern-square.diagonal-green::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background-color: #ffc107; /* Amarelo padrão - Tie */
+    transform: skewX(-15deg);
+    transform-origin: top right;
+}
+
+/* Estilos para o preview do padrão no Dragon Tiger */
+.game-dragon-tiger .pattern-preview .pattern-square.diagonal-red::after,
+.game-dragon-tiger .pattern-preview .pattern-square.diagonal-yellow::after,
+.game-dragon-tiger .pattern-preview .pattern-square.diagonal-blue::after,
+.game-dragon-tiger .pattern-preview .pattern-square.diagonal-green::after {
+    background-color: #28a745 !important; /* Verde - Tie no Dragon Tiger */
+}
+
+.color-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+/* Botões Especiais */
+.special-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.special-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: #2a2a2a !important;
+    border: 2px solid var(--border-gold);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.special-btn:hover {
+    border-color: var(--secondary-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+}
+
+.special-btn.active {
+    border-color: var(--secondary-gold);
+    background: rgba(255, 215, 0, 0.1);
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.3);
+}
+
+.special-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+/* Preview do Padrão */
+.pattern-preview {
+    background: var(--secondary-dark) !important;
+    border: 1px solid var(--border-gold);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.preview-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-style: italic;
+    width: 100%;
+}
+
+.preview-placeholder i {
+    font-size: 20px;
+    color: var(--accent-gold);
+}
+
+.preview-placeholder p {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+/* Ações do Modal */
+.modal-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .modal-overlay {
+        padding: 20px;
+    }
+    
+    .estrategia-modal {
+        width: 100%;
+        max-width: none;
+        max-height: 95vh;
+    }
+    
+    .modal-header {
+        padding: 16px 20px;
+    }
+    
+    .modal-header h3 {
+        font-size: 16px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .pattern-sections {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .modal-footer {
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .color-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .color-btn {
+        flex-direction: row;
+        justify-content: center;
+        min-width: auto;
+    }
+    
+    .special-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .modal-actions .btn {
+        width: 100%;
+    }
+    
+    .form-input {
+        font-size: 16px; /* Evita zoom no iOS */
+    }
+}
+</style>
+
+    
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content-wrapper">
+            <div class="footer-text">
+                <p class="text-justify text-xs font-medium text-gray-500">ESPORTIVA.BET.BR é um site de entretenimento online que oferece aos seus usuários uma experiência única em apostas esportivas e jogos online. ESPORTIVA.BET.BR é operado pela EA Entretenimento e Esportes LTDA, empresa registrada sob o CNPJ no 53.570.592/0001-43, devidamente licenciada pela Secretaria de Prêmios e Apostas do Ministério da Fazenda (SPA/MF) para a exploração de apostas de quota fixa em âmbito nacional, conforme autorização no 2.104-27, emitida em 30 de dezembro de 2024 e publicada no Diário Oficial da União em 31 de dezembro de 2024. </p>
+            </div>
+      
+        </div>
+        
+
+        
+        <!-- Seção de Selos e Certificações -->
+        <div class="footer-certifications">
+           
+
+            <div class="certification-group">
+                <a href="https://esportiva.bet.br/responsible" class="responsible-gaming-link">
+                    <span class="age-badge">18+</span>
+                    <span class="responsible-text">Jogue com responsabilidade</span>
+                </a>
+           
+            </div>
+        </div>
+        
+      
+    </div>
+</footer>
+
+    <!-- Modal de Seleção de Jogo para Sala de Sinais - igual app referencia -->
+    <div id="salaSinaisGameModal" class="game-selection-modal" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; z-index: 99999 !important; display: none; align-items: center; justify-content: center;">
+        <div class="game-selection-modal-backdrop" onclick="closeSalaSinaisGameModal()"></div>
+        <div class="game-selection-modal-content" style="position: relative !important; z-index: 100000 !important;">
+            <div class="game-selection-modal-header">
+                <h2>
+                    <i class="fas fa-broadcast-tower"></i>
+                    Escolha o Jogo
+                </h2>
+                <button class="modal-close-btn" onclick="closeSalaSinaisGameModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="game-selection-modal-body">
+                <p class="modal-description">Selecione qual jogo deseja acompanhar na Sala de Sinais:</p>
+                <div class="game-selection-options">
+                    <div class="game-option" onclick="selectSalaSinaisGame('bacbo')">
+                        <div class="game-option-icon">
+                            <i class="fas fa-dice"></i>
+                        </div>
+                        <h3>BacBo</h3>
+                        <p>Acompanhe os sinais do BacBo</p>
+                    </div>
+                    <div class="game-option" onclick="selectSalaSinaisGame('football-studio')">
+                        <div class="game-option-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h3>Football Studio</h3>
+                        <p>Acompanhe os sinais do Football Studio</p>
+                    </div>
+                    <div class="game-option" onclick="selectSalaSinaisGame('futebol-studio-br')">
+                        <div class="game-option-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <h3>Futebol Studio BR</h3>
+                        <p>Acompanhe os sinais do Futebol Studio BR</p>
+                    </div>
+                    <div class="game-option" onclick="selectSalaSinaisGame('dragon-tiger')">
+                        <div class="game-option-icon">
+                            <i class="fas fa-dragon"></i>
+                        </div>
+                        <h3>Dragon Tiger</h3>
+                        <p>Acompanhe os sinais do Dragon Tiger</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Inferior removido -->
+
+
+
+    <!-- JavaScript inline removido - funcionalidades movidas para componentes -->
+    <script>
+        // Funções específicas do index.php que não foram movidas para componentes
+        
+        // Função para tornar o checkmark clicável (específica do index.php)
+        function setupCheckboxClickable() {
+            const checkboxWrappers = document.querySelectorAll('.checkbox-wrapper');
+            
+            checkboxWrappers.forEach(wrapper => {
+                const checkbox = wrapper.querySelector('input[type="checkbox"]');
+                const checkmark = wrapper.querySelector('.checkmark');
+                
+                if (checkbox && checkmark) {
+                    // Clicar no checkmark alterna o checkbox
+                    checkmark.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        checkbox.checked = !checkbox.checked;
+                        
+                        // Disparar evento change para qualquer listener
+                        checkbox.dispatchEvent(new Event('change'));
+                    });
+                    
+                    // Clicar no wrapper também alterna
+                    wrapper.addEventListener('click', function(e) {
+                        // Só se não foi clicado diretamente no checkmark
+                        if (e.target !== checkmark) {
+                            checkbox.checked = !checkbox.checked;
+                            checkbox.dispatchEvent(new Event('change'));
+                        }
+                    });
+                }
+            });
+        }
+        
+        // Inicializar quando DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tornar checkbox clicável via checkmark
+            setupCheckboxClickable();
+        });
+    </script>
+    
+    <!-- Config JavaScript -->
+    <script src="js/config/app.js"></script>
+    
+    <!-- Cookie Helper (para requisições com proxy remoto) -->
+    <script src="js/cookie-helper.js"></script>
+    
+    <!-- Global JavaScript -->
+    <script src="js/global.js"></script>
+    
+    <!-- Components JavaScript -->
+    <script src="js/components/auth.js?v=2"></script>
+    <script src="js/components/currency.js"></script>
+    <script src="js/components/header.js?v=1768501969.7141"></script>
+    <script src="js/components/modals.js"></script>
+    <script src="js/components/deposit.js?v=2"></script>
+    <script src="js/components/balance.js"></script>
+    <script src="js/components/admin-check.js"></script>
+    
+    <!-- Features JavaScript -->
+    <script src="js/features/roulette_history.js?v=11"></script>
+    <script src="js/features/football_studio_history.js?v=1768501969"></script>
+    <script src="js/features/bacbo_history.js?v=1768501969"></script>
+    <script src="js/features/strategy_stats.js"></script>
+    <script src="js/features/suggestions.js?v=1768501969"></script>
+    
+<!-- Additional Components -->
+<script src="js/components/withdraw.js"></script>
+<script src="js/components/custom-strategies.js"></script>
+<script src="js/components/estrategia-modal.js?v=1768501969"></script>
+    
+    <!-- Games JavaScript -->
+    <script src="js/games.js?v=1768501969"></script>
+    
+    <!-- Sections JavaScript -->
+    <script src="js/sections/inicio-novo.js?v=1768501969"></script>
+    <script src="js/sections/inicio.js"></script>
+    <script src="js/sections/calculadora.js"></script>
+    <script src="js/sections/gestao.js?v=1768501969.7141"></script>
+    <script src="js/sections/jogos.js"></script>
+    <script src="js/sections/aulas.js"></script>
+    <script src="js/sections/noticias.js?v=1768501969.7141"></script>
+    <script>
+        
+        // Verificar se há uma seção específica na URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const targetSection = urlParams.get('section');
+        if (targetSection) {
+            console.log('🎯 Seção solicitada via URL:', targetSection);
+            // Aguardar o carregamento completo antes de ativar a seção
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    if (typeof HeaderComponent !== 'undefined' && HeaderComponent.showSection) {
+                        HeaderComponent.showSection(targetSection + '-section');
+                    }
+                }, 500);
+            });
+        }
+        
+        // Função de debug para listar seções disponíveis
+        window.listarSecoes = function() {
+            console.log('📋 Seções disponíveis no sistema:');
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const isActive = section.classList.contains('active') ? '✅ ATIVA' : '⬜ Inativa';
+                console.log(`  ${isActive} - ${section.id}`);
+            });
+        };
+        
+        // Função de debug para ativar gestão de banca
+        window.abrirGestao = function() {
+            console.log('🏦 Abrindo Gestão de Banca...');
+            if (typeof HeaderComponent !== 'undefined' && HeaderComponent.showSection) {
+                HeaderComponent.showSection('gestao-section');
+            } else {
+                console.error('❌ HeaderComponent não está disponível!');
+            }
+        };
+        
+        // Função de debug para forçar aplicação de cores
+        window.forceColorUpdate = function() {
+            console.log('🎨 ===== FORÇANDO ATUALIZAÇÃO DE CORES =====');
+            console.log('🎮 Current Game:', window.FOOTBALL_STUDIO_HISTORY?.currentGame);
+            
+            // Testar função getColorEmoji
+            if (typeof window.getColorEmoji === 'function') {
+                console.log('✅ getColorEmoji disponível');
+                console.log('🔴 V =', window.getColorEmoji('V'));
+                console.log('🔵 A =', window.getColorEmoji('A'));
+                console.log('🟡 T =', window.getColorEmoji('T'));
+            } else {
+                console.error('❌ getColorEmoji NÃO disponível!');
+            }
+            
+            // Forçar re-renderização
+            if (typeof window.performColorAnalysis === 'function') {
+                window.performColorAnalysis();
+            }
+            if (typeof window.performCardAnalysis === 'function') {
+                window.performCardAnalysis();
+            }
+            if (typeof window.performIAStrategies === 'function') {
+                window.performIAStrategies();
+            }
+            
+            console.log('✅ Atualização de cores forçada');
+        };
+        
+    </script>
+    
+    <!-- User System JavaScript -->
+    <script src="js/user.js"></script>
+    
+    <!-- Script específico para botão Aulas e funções do Dashboard -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Garantir que o botão Aulas funcione corretamente
+        const aulasLink = document.querySelector('.external-link[data-external="true"]');
+        if (aulasLink) {
+             aulasLink.addEventListener('click', function(e) {
+                e.stopPropagation(); // Impede que outros event listeners interfiram
+                 // O comportamento padrão (abrir link) será mantido
+            }, true); // useCapture = true para executar antes de outros listeners
+            
+            // Também adicionar um onclick direto como backup
+            aulasLink.onclick = function(e) {
+                 window.open(this.href, '_blank', 'noopener,noreferrer');
+                return false;
+            };
+        }
+        
+        // Função global para testar o botão Aulas
+        window.testarAulas = function() {
+            const link = document.querySelector('.external-link[data-external="true"]');
+            if (link) {
+                 window.open(link.href, '_blank', 'noopener,noreferrer');
+            }
+        };
+    });
+
+    // Funções globais para os cards do Dashboard
+    window.openCalculator = function() {
+        console.log('🧮 Abrindo calculadora via função global...');
+        // Usar a função showSection do header se disponível
+        if (typeof Header !== 'undefined' && Header.showSection) {
+            Header.showSection('calculadora-section');
+        } else {
+            // Fallback: navegar diretamente para a seção
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const calculatorSection = document.getElementById('calculadora-section');
+            if (calculatorSection) {
+                calculatorSection.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+    };
+
+    window.openLessons = function() {
+        console.log('🎓 Abrindo aulas via função global...');
+        // Usar a função showSection do header se disponível
+        if (typeof Header !== 'undefined' && Header.showSection) {
+            Header.showSection('aulas-section');
+        } else {
+            // Fallback: navegar diretamente para a seção de aulas
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const aulasSection = document.getElementById('aulas-section');
+            if (aulasSection) {
+                aulasSection.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+    };
+
+    window.openNews = function() {
+        console.log('📰 Abrindo notícias via função global...');
+        alert('Seção de notícias em desenvolvimento! Em breve você terá acesso às últimas notícias do mundo das apostas.');
+    };
+
+    window.openSupport = function() {
+        console.log('🎧 Abrindo suporte via função global...');
+        alert('Seção de suporte em desenvolvimento! Em breve você terá acesso ao nosso suporte 24/7.');
+    };
+
+    // Função para voltar ao início
+    window.voltarInicio = function() {
+        console.log('🏠 Voltando ao início...');
+        // Usar a função showSection do header se disponível
+        if (typeof Header !== 'undefined' && Header.showSection) {
+            Header.showSection('inicio-section');
+        } else {
+            // Fallback: navegar diretamente para a seção inicial
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const inicioSection = document.getElementById('inicio-section');
+            if (inicioSection) {
+                inicioSection.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+    };
+
+    // Funções para as notícias
+    window.refreshNews = function() {
+        console.log('🔄 Atualizando notícias...');
+        // Simular carregamento
+        const refreshBtn = document.querySelector('.news-refresh-btn i');
+        if (refreshBtn) {
+            refreshBtn.style.animation = 'spin 1s linear infinite';
+            setTimeout(() => {
+                refreshBtn.style.animation = '';
+                alert('Notícias atualizadas!');
+            }, 1000);
+        }
+    };
+
+    // Função removida - agora está em js/sections/noticias.js
+
+        // Inicializar componentes quando DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            // CustomStrategies desabilitado - funcionalidade removida
+            // Não é necessário inicializar aqui para evitar chamadas duplicadas
+        });
+
+    // Funções do menu inferior removidas
+    </script>
+
+</body>
+</html>
