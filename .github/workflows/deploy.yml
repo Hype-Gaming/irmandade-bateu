@@ -2,7 +2,7 @@ name: Deploy Bateu (VPS)
 
 # Deploy automático da Bateu na VPS, sem mexer no Irmandade (app/porta próprios).
 # A cada push na main (ou disparo manual), entra na VPS por SSH, atualiza o
-# código, builda e dá pm2 reload do ecosystem.bateu.cjs (zero-downtime).
+# código, builda e dá pm2 reload do ecosystem.bateu.config.cjs (zero-downtime).
 #
 # Secrets necessários (Settings → Secrets and variables → Actions), apontando
 # para o deploy da BATEU:
@@ -49,5 +49,5 @@ jobs:
             npm run build
 
             # Recarrega SÓ a Bateu (app 'bateu', porta 3110). Não afeta o irmandade.
-            pm2 reload ecosystem.bateu.cjs --update-env
+            pm2 reload ecosystem.bateu.config.cjs --update-env
             pm2 save
