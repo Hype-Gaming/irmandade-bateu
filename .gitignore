@@ -57,6 +57,5 @@ Thumbs.db
 dump.pm2
 
 # SSH deploy keys (NUNCA commitar a chave privada)
-deploy_key
-deploy_key.pub
+deploy_key*
 *.pem
