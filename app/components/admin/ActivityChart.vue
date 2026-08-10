@@ -21,9 +21,9 @@
       <svg :viewBox="`0 0 ${W} ${H}`" preserveAspectRatio="none" class="chart-svg">
         <defs>
           <linearGradient id="admAreaGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="rgba(0, 204, 255, 0.34)" />
-            <stop offset="55%" stop-color="rgba(0, 204, 255, 0.1)" />
-            <stop offset="100%" stop-color="rgba(0, 204, 255, 0.015)" />
+            <stop offset="0%" stop-color="rgba(255, 20, 147, 0.34)" />
+            <stop offset="55%" stop-color="rgba(255, 20, 147, 0.1)" />
+            <stop offset="100%" stop-color="rgba(255, 20, 147, 0.015)" />
           </linearGradient>
         </defs>
 
@@ -210,8 +210,8 @@ watch(mode, () => { hoverIdx.value = -1 })
 }
 
 .chart-toggle button.active {
-  background: rgba(0, 204, 255, 0.12);
-  color: #00ccff;
+  background: rgba(255, 20, 147, 0.12);
+  color: #ff1493;
 }
 
 .chart-area {
@@ -236,11 +236,11 @@ watch(mode, () => { hoverIdx.value = -1 })
 
 .line {
   fill: none;
-  stroke: #00ccff;
+  stroke: #ff1493;
   stroke-width: 2.4;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 2px 6px rgba(0, 204, 255, 0.45));
+  filter: drop-shadow(0 2px 6px rgba(255, 20, 147, 0.45));
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   animation: admin-line-draw 0.9s var(--adm-ease) forwards;
@@ -248,7 +248,7 @@ watch(mode, () => { hoverIdx.value = -1 })
 
 .dot {
   fill: #0b0b0b;
-  stroke: #00ccff;
+  stroke: #ff1493;
   stroke-width: 1.6;
   opacity: 0;
   animation: admin-dot-in 0.3s ease forwards;
@@ -256,14 +256,14 @@ watch(mode, () => { hoverIdx.value = -1 })
 }
 
 .dot-active {
-  fill: #00ccff;
+  fill: #ff1493;
   stroke: #0b0b0b;
   stroke-width: 2;
-  filter: drop-shadow(0 0 8px rgba(0, 204, 255, 0.8));
+  filter: drop-shadow(0 0 8px rgba(255, 20, 147, 0.8));
 }
 
 .hover-guide {
-  stroke: rgba(0, 204, 255, 0.35);
+  stroke: rgba(255, 20, 147, 0.35);
   stroke-width: 1;
   stroke-dasharray: 3 3;
 }

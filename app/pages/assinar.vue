@@ -150,7 +150,7 @@ useHead({ title: 'Assinar - Irmandade Club' })
 
 .crown-icon {
   font-size: 32px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .logo h1 {
@@ -199,7 +199,7 @@ useHead({ title: 'Assinar - Irmandade Club' })
 
 .feature :deep(svg) {
   font-size: 18px;
-  color: #00ccff;
+  color: #ff1493;
   flex-shrink: 0;
 }
 
@@ -209,7 +209,7 @@ useHead({ title: 'Assinar - Irmandade Club' })
   justify-content: center;
   gap: 10px;
   padding: 16px 24px;
-  background: #00ccff;
+  background: #ff1493;
   color: #000;
   font-size: 16px;
   font-weight: 700;
@@ -219,7 +219,7 @@ useHead({ title: 'Assinar - Irmandade Club' })
 }
 
 .btn-assinar:hover {
-  background: #00b8e6;
+  background: #e6008a;
 }
 
 .checkout-pendente {
@@ -248,7 +248,7 @@ useHead({ title: 'Assinar - Irmandade Club' })
 .btn-verificar {
   background: none;
   border: none;
-  color: #00ccff;
+  color: #ff1493;
   font-size: 13px;
   cursor: pointer;
   text-decoration: underline;

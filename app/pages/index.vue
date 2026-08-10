@@ -133,7 +133,7 @@
       <!-- Center Content -->
       <div class="center-content">
         <!-- Banner Carousel -->
-        <div class="banner-carousel">
+        <div v-if="banners.length" class="banner-carousel">
           <button v-if="banners.length > 1" class="carousel-btn prev" @click="prevBanner">
             <Icon name="ph:caret-left-bold" />
           </button>
@@ -438,20 +438,24 @@ const handleLogout = async () => {
 }
 
 const nextBanner = () => {
+  if (!banners.value.length) return
   currentBanner.value = (currentBanner.value + 1) % banners.value.length
 }
 
 const prevBanner = () => {
-  currentBanner.value = currentBanner.value === 0 
-    ? banners.value.length - 1 
+  if (!banners.value.length) return
+  currentBanner.value = currentBanner.value === 0
+    ? banners.value.length - 1
     : currentBanner.value - 1
 }
 
-// Auto-slide every 5 seconds
+// Auto-slide every 5 seconds (só faz sentido com mais de um banner)
 onMounted(() => {
-  setInterval(() => {
-    nextBanner()
-  }, 5000)
+  if (banners.value.length > 1) {
+    setInterval(() => {
+      nextBanner()
+    }, 5000)
+  }
   document.addEventListener('click', closeDropdown)
 })
 
@@ -586,11 +590,11 @@ const claudeGames = ref([
 
 .balance-icon {
   font-size: 18px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .balance-value {
-  color: #00ccff;
+  color: #ff1493;
   font-weight: 600;
 }
 
@@ -602,12 +606,12 @@ const claudeGames = ref([
 }
 
 .balance-info:hover {
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .btn-deposit {
   padding: 12px 24px;
-  background: linear-gradient(135deg, #00ccff 0%, #0099cc 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #c6006f 100%);
   border: none;
   border-radius: 8px;
   color: #000000;
@@ -619,7 +623,7 @@ const claudeGames = ref([
 
 .btn-deposit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 204, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
 }
 
 .profile-wrapper {
@@ -629,7 +633,7 @@ const claudeGames = ref([
 .profile-icon {
   width: 42px;
   height: 42px;
-  background: linear-gradient(135deg, #00ccff 0%, #0099cc 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #c6006f 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -734,10 +738,10 @@ const claudeGames = ref([
   gap: 8px;
   width: 100%;
   padding: 12px 16px;
-  background: rgba(0, 204, 255, 0.08);
-  border: 1px solid rgba(0, 204, 255, 0.3);
+  background: rgba(255, 20, 147, 0.08);
+  border: 1px solid rgba(255, 20, 147, 0.3);
   border-radius: 10px;
-  color: #00ccff;
+  color: #ff1493;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -746,12 +750,12 @@ const claudeGames = ref([
 }
 
 .btn-confirmar-compra:hover {
-  background: rgba(0, 204, 255, 0.15);
-  border-color: #00ccff;
+  background: rgba(255, 20, 147, 0.15);
+  border-color: #ff1493;
 }
 
 .sidebar-title {
-  color: #00ccff;
+  color: #ff1493;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 16px;
@@ -759,7 +763,7 @@ const claudeGames = ref([
 
 .news-card.featured {
   background: linear-gradient(135deg, #001a2a 0%, #002a3a 100%);
-  border: 1px solid #00ccff;
+  border: 1px solid #ff1493;
   border-radius: 12px;
   padding: 24px;
   margin-bottom: 16px;
@@ -767,7 +771,7 @@ const claudeGames = ref([
 }
 
 .news-badge {
-  color: #00ccff;
+  color: #ff1493;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 4px;
@@ -777,7 +781,7 @@ const claudeGames = ref([
   font-size: 28px;
   font-weight: 800;
   color: #ffffff;
-  text-shadow: 0 0 20px rgba(0, 204, 255, 0.3);
+  text-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
 }
 
 .telegram-banner {
@@ -793,8 +797,8 @@ const claudeGames = ref([
 }
 
 .telegram-banner:hover {
-  border-color: #00ccff;
-  box-shadow: 0 0 16px rgba(0, 204, 255, 0.25);
+  border-color: #ff1493;
+  box-shadow: 0 0 16px rgba(255, 20, 147, 0.25);
 }
 
 .telegram-banner-img {
@@ -839,14 +843,14 @@ const claudeGames = ref([
   margin-bottom: 12px;
   border-radius: 12px;
   background: linear-gradient(135deg, #001a2a 0%, #00263a 100%);
-  border: 1px solid rgba(0, 204, 255, 0.4);
+  border: 1px solid rgba(255, 20, 147, 0.4);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .push-prompt:hover:not(:disabled) {
-  border-color: #00ccff;
-  box-shadow: 0 0 16px rgba(0, 204, 255, 0.2);
+  border-color: #ff1493;
+  box-shadow: 0 0 16px rgba(255, 20, 147, 0.2);
 }
 
 .push-prompt:disabled {
@@ -859,7 +863,7 @@ const claudeGames = ref([
   height: 42px;
   flex-shrink: 0;
   border-radius: 10px;
-  background: rgba(0, 204, 255, 0.15);
+  background: rgba(255, 20, 147, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -867,7 +871,7 @@ const claudeGames = ref([
 
 .push-prompt-icon :deep(svg) {
   font-size: 22px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .push-prompt-text {
@@ -928,7 +932,7 @@ const claudeGames = ref([
 }
 
 .news-item:hover {
-  border-color: #00ccff;
+  border-color: #ff1493;
   background-color: #1a1a1a;
 }
 
@@ -952,7 +956,7 @@ const claudeGames = ref([
 
 .news-icon-svg {
   font-size: 24px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .news-content {
@@ -960,7 +964,7 @@ const claudeGames = ref([
 }
 
 .news-title {
-  color: #00ccff;
+  color: #ff1493;
   font-size: 14px;
   font-weight: 600;
   margin: 0 0 4px 0;
@@ -1027,8 +1031,8 @@ const claudeGames = ref([
 }
 
 .carousel-btn:hover {
-  background-color: rgba(0, 204, 255, 0.3);
-  border-color: #00ccff;
+  background-color: rgba(255, 20, 147, 0.3);
+  border-color: #ff1493;
 }
 
 .carousel-btn.prev {
@@ -1080,25 +1084,25 @@ const claudeGames = ref([
   font-size: 28px;
   font-weight: 800;
   letter-spacing: 0.3px;
-  background: linear-gradient(135deg, #ffffff 0%, #00ccff 50%, #ffffff 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #ff1493 50%, #ffffff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 40px rgba(0, 204, 255, 0.15);
+  text-shadow: 0 0 40px rgba(255, 20, 147, 0.15);
 }
 
 .hero-title-icon {
   font-size: 30px;
-  color: #00ccff;
-  -webkit-text-fill-color: #00ccff;
-  filter: drop-shadow(0 0 12px rgba(0, 204, 255, 0.6));
+  color: #ff1493;
+  -webkit-text-fill-color: #ff1493;
+  filter: drop-shadow(0 0 12px rgba(255, 20, 147, 0.6));
 }
 
 .hero-title-underline {
   margin: 14px auto 0;
   width: 140px;
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, #00ccff 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #ff1493 50%, transparent 100%);
   border-radius: 2px;
 }
 
@@ -1129,7 +1133,7 @@ const claudeGames = ref([
 
 .title-icon {
   font-size: 24px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .games-nav {
@@ -1150,8 +1154,8 @@ const claudeGames = ref([
 }
 
 .nav-btn:hover {
-  border-color: #00ccff;
-  color: #00ccff;
+  border-color: #ff1493;
+  color: #ff1493;
 }
 
 .games-grid {
@@ -1172,9 +1176,9 @@ const claudeGames = ref([
 }
 
 .game-card:hover {
-  border-color: #00ccff;
+  border-color: #ff1493;
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 204, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(255, 20, 147, 0.2);
 }
 
 .game-image {
@@ -1214,8 +1218,8 @@ const claudeGames = ref([
 .lock-badge {
   width: 50px;
   height: 50px;
-  background-color: rgba(0, 204, 255, 0.15);
-  border: 2px solid #00ccff;
+  background-color: rgba(255, 20, 147, 0.15);
+  border: 2px solid #ff1493;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -1225,7 +1229,7 @@ const claudeGames = ref([
 
 .lock-icon {
   font-size: 28px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .locked-title {
@@ -1265,7 +1269,7 @@ const claudeGames = ref([
 
 .provider-icon {
   font-size: 10px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 /* Permanent Lock (Premium / Claude) */
@@ -1369,7 +1373,7 @@ const claudeGames = ref([
 
 .section-title-icon {
   font-size: 22px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 /* Links Úteis */
@@ -1380,7 +1384,7 @@ const claudeGames = ref([
 .section-title {
   font-size: 18px;
   font-weight: 600;
-  color: #00ccff;
+  color: #ff1493;
   margin: 0 0 16px 0;
 }
 
@@ -1404,12 +1408,12 @@ const claudeGames = ref([
 }
 
 .link-card:hover {
-  border-color: #00ccff;
+  border-color: #ff1493;
   background-color: #1a1a1a;
 }
 
 .link-card.link-active {
-  background: linear-gradient(135deg, #00ccff 0%, #00aa44 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #ff7ac8 100%);
   border-color: transparent;
 }
 
@@ -1420,7 +1424,7 @@ const claudeGames = ref([
 
 .link-icon {
   font-size: 20px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .link-text {
@@ -1458,9 +1462,9 @@ const claudeGames = ref([
 }
 
 .highlight-card:hover {
-  border-color: #00ccff;
+  border-color: #ff1493;
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 204, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(255, 20, 147, 0.2);
 }
 
 .highlight-card img {

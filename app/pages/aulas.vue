@@ -113,8 +113,8 @@ const aulas = [
 }
 
 .btn-back:hover {
-  border-color: #00ccff;
-  color: #00ccff;
+  border-color: #ff1493;
+  color: #ff1493;
 }
 
 .content {
@@ -130,7 +130,7 @@ const aulas = [
 
 .title-icon {
   font-size: 48px;
-  color: #00ccff;
+  color: #ff1493;
   margin-bottom: 16px;
 }
 
@@ -163,9 +163,9 @@ const aulas = [
 }
 
 .video-card:hover {
-  border-color: #00ccff;
+  border-color: #ff1493;
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 204, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(255, 20, 147, 0.15);
 }
 
 .video-number {
@@ -174,7 +174,7 @@ const aulas = [
   left: 16px;
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, #00ccff 0%, #00aadd 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #e6008a 100%);
   border-radius: 8px;
   display: flex;
   align-items: center;

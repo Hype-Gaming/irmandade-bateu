@@ -209,7 +209,7 @@ watch(isModalOpen, (isOpen) => {
   max-width: 480px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0, 204, 255, 0.15);
+  box-shadow: 0 20px 60px rgba(255, 20, 147, 0.15);
 }
 
 .modal-header {
@@ -232,7 +232,7 @@ watch(isModalOpen, (isOpen) => {
 
 .modal-title :deep(svg) {
   font-size: 24px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .close-btn {
@@ -278,13 +278,13 @@ watch(isModalOpen, (isOpen) => {
 }
 
 .amount-input-wrapper:focus-within {
-  border-color: #00ccff;
+  border-color: #ff1493;
 }
 
 .currency {
   font-size: 24px;
   font-weight: 600;
-  color: #00ccff;
+  color: #ff1493;
   margin-right: 8px;
 }
 
@@ -336,8 +336,8 @@ watch(isModalOpen, (isOpen) => {
 
 .quick-btn:hover {
   background: #222;
-  border-color: #00ccff;
-  color: #00ccff;
+  border-color: #ff1493;
+  color: #ff1493;
 }
 
 .error-message {
@@ -360,7 +360,7 @@ watch(isModalOpen, (isOpen) => {
   justify-content: center;
   gap: 8px;
   padding: 16px 24px;
-  background: linear-gradient(135deg, #00ccff 0%, #0099cc 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #c6006f 100%);
   border: none;
   border-radius: 10px;
   color: #000;
@@ -372,7 +372,7 @@ watch(isModalOpen, (isOpen) => {
 
 .submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 204, 255, 0.35);
+  box-shadow: 0 8px 25px rgba(255, 20, 147, 0.35);
 }
 
 .submit-btn:disabled {
@@ -406,7 +406,7 @@ watch(isModalOpen, (isOpen) => {
 }
 
 .payment-amount strong {
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .payment-id {
@@ -460,7 +460,7 @@ watch(isModalOpen, (isOpen) => {
   align-items: center;
   gap: 6px;
   padding: 12px 16px;
-  background: #00ccff;
+  background: #ff1493;
   border: none;
   border-radius: 8px;
   color: #000;
@@ -472,7 +472,7 @@ watch(isModalOpen, (isOpen) => {
 }
 
 .copy-btn:hover {
-  background: #00b8e6;
+  background: #e6008a;
 }
 
 .instructions {
@@ -537,7 +537,7 @@ watch(isModalOpen, (isOpen) => {
 }
 
 .success-description strong {
-  color: #00ccff;
+  color: #ff1493;
 }
 
 /* Modal Transitions */
