@@ -9,6 +9,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME, APP_DESCRIPTION } from '../shared/app'
+
 const { needsKyc, kycChecked, isAuthenticated, logout, fetchUserProfile } = useAuth()
 const route = useRoute()
 
@@ -39,9 +41,9 @@ const handleKycLogout = async () => {
 
 // Componente raiz da aplicação Nuxt
 useHead({
-  title: 'Irmandade Club',
+  title: APP_NAME,
   meta: [
-    { name: 'description', content: 'Irmandade Club - Sua comunidade de estratégias' }
+    { name: 'description', content: APP_DESCRIPTION }
   ]
 })
 </script>

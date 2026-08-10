@@ -6,7 +6,7 @@
           <div class="modal-header">
             <div class="modal-logo">
               <Icon name="ph:crown-simple-bold" class="crown-icon" />
-              <span>Irmandade Club</span>
+              <span>{{ APP_NAME }}</span>
             </div>
           </div>
 
@@ -67,6 +67,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../shared/app'
+
 const { showModal, checking, error, checkSubscription, dismissModal } = useSubscription()
 
 const checkoutUrl = 'https://lastlink.com/p/C80B167D8/checkout-payment'

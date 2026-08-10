@@ -13,7 +13,7 @@
         <h2 class="kyc-title">Verificação KYC Obrigatória</h2>
         
         <p class="kyc-description">
-          Para acessar a <strong>Irmandade Club</strong>, você precisa completar a verificação de identidade (KYC) na sua conta da casa de apostas.
+          Para acessar a <strong>{{ APP_NAME }}</strong>, você precisa completar a verificação de identidade (KYC) na sua conta da casa de apostas.
         </p>
         
         <div class="kyc-steps">
@@ -62,6 +62,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../shared/app'
+
 const props = defineProps<{
   show: boolean
 }>()

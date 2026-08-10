@@ -3,7 +3,7 @@
     <div v-if="isLoading" class="page-loader">
       <div class="loader-content">
         <div class="loader-logo">
-          <img src="/logo.png" alt="Irmandade Club" />
+          <img src="/logo.png" :alt="APP_NAME" />
         </div>
         <div class="loader-spinner">
           <div class="spinner-ring"></div>
@@ -17,6 +17,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../shared/app'
+
 const nuxtApp = useNuxtApp()
 const isLoading = ref(false)
 
