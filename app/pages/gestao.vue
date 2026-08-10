@@ -4,7 +4,7 @@
     <header class="header">
       <div class="header-left">
         <NuxtLink to="/">
-          <img src="/logo.png" alt="Irmandade Club" class="header-logo" />
+          <img src="/logo.png" :alt="APP_NAME" class="header-logo" />
         </NuxtLink>
       </div>
       <div class="header-right">
@@ -363,8 +363,10 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../shared/app'
+
 useHead({
-  title: 'Gestão de Banca - Irmandade Club'
+  title: `Gestão de Banca - ${APP_NAME}`
 })
 
 // Dados do componente
@@ -377,6 +379,9 @@ const editing = ref({
   field: null as string | null
 })
 const editValue = ref(0)
+// Prefixo "irmandade_" mantido de propósito junto com a troca de nome: essa
+// chave guarda a banca que o usuário já digitou, e renomeá-la apagaria os dados
+// de todo mundo (o app leria uma chave nova e vazia).
 const dataKey = 'irmandade_gestao_banca_data'
 const savedDate = ref<Date | null>(null)
 

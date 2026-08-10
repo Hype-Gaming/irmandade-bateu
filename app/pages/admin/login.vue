@@ -4,7 +4,7 @@
       <div class="login-header">
         <Icon name="ph:shield-check-bold" class="shield-icon" />
         <h1>Painel Admin</h1>
-        <p>Irmandade Club</p>
+        <p>{{ APP_NAME }}</p>
       </div>
 
       <form class="login-form" @submit.prevent="handleLogin">
@@ -59,6 +59,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../../shared/app'
+
 definePageMeta({ layout: false })
 
 const email = ref('')
@@ -83,7 +85,7 @@ const handleLogin = async () => {
   }
 }
 
-useHead({ title: 'Admin Login – Irmandade Club' })
+useHead({ title: `Admin Login – ${APP_NAME}` })
 </script>
 
 <style>

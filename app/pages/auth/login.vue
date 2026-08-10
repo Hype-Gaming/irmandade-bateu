@@ -2,7 +2,7 @@
   <div class="login-page">
     <div class="login-container">
       <div class="login-header">
-        <img src="/logo.png" alt="Irmandade Club" class="logo" />
+        <img src="/logo.png" :alt="APP_NAME" class="logo" />
         <p class="subtitle">Acesse sua conta</p>
       </div>
 
@@ -87,6 +87,7 @@ definePageMeta({
   layout: 'default'
 })
 
+import { APP_NAME } from '../../../shared/app'
 import { getDefaultBrand } from '../../../shared/brands'
 
 const { login, loading, error, isAuthenticated, user } = useAuth()

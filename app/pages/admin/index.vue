@@ -6,7 +6,7 @@
         <div class="brand">
           <Icon name="ph:shield-check-bold" class="brand-icon" />
           <div class="brand-text">
-            <span class="brand-eyebrow">Irmandade Club</span>
+            <span class="brand-eyebrow">{{ APP_NAME }}</span>
             <strong>Painel Admin</strong>
           </div>
         </div>
@@ -489,6 +489,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME, APP_SLUG } from '../../../shared/app'
+
 definePageMeta({ middleware: 'admin' })
 
 interface AppUser {
@@ -727,7 +729,7 @@ const exportCsv = async () => {
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `usuarios-irmandade-${new Date().toISOString().slice(0, 10)}.csv`
+    a.download = `usuarios-${APP_SLUG}-${new Date().toISOString().slice(0, 10)}.csv`
     document.body.appendChild(a)
     a.click()
     a.remove()
@@ -901,7 +903,7 @@ onMounted(() => {
   fetchActivity()
 })
 
-useHead({ title: 'Dashboard – Admin Irmandade' })
+useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 </script>
 
 <style>

@@ -450,6 +450,7 @@
 
 <script setup lang="ts">
 import { getCatalogadorQueries, getGameRouteConfig, resolveGameRouteId } from '../../constants/gameRoutes'
+import { APP_NAME } from '../../../shared/app'
 
 const route = useRoute()
 const { isAuthenticated } = useAuth()
@@ -1458,7 +1459,7 @@ watch(isAuthenticated, (newVal) => {
 })
 
 useHead({
-  title: () => `${currentGame.value.name} - Irmandade Club`
+  title: () => `${currentGame.value.name} - ${APP_NAME}`
 })
 </script>
 

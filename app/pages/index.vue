@@ -2,8 +2,8 @@
   <div class="dashboard">
     <!-- Header -->
     <header class="header">
-      <NuxtLink to="/" aria-label="Irmandade Club">
-        <img src="/logo.png" alt="Irmandade Club" class="header-logo" />
+      <NuxtLink to="/" :aria-label="APP_NAME">
+        <img src="/logo.png" :alt="APP_NAME" class="header-logo" />
       </NuxtLink>
 
       <div class="header-right">
@@ -290,6 +290,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../shared/app'
+
 definePageMeta({
   layout: 'default'
 })

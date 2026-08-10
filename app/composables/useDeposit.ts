@@ -1,4 +1,4 @@
-// Composable de Depósito - Irmandade Club
+// Composable de Depósito - Clube da BB
 // Integração com API Cactus para depósitos PIX
 
 // Tipos

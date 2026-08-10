@@ -4,12 +4,12 @@
       <div class="card">
         <div class="logo">
           <Icon name="ph:crown-simple-bold" class="crown-icon" />
-          <h1>Irmandade Club</h1>
+          <h1>{{ APP_NAME }}</h1>
         </div>
 
         <div class="content">
           <h2>Acesso Exclusivo</h2>
-          <p>Você ainda não possui uma assinatura ativa para acessar o Irmandade Club.</p>
+          <p>Você ainda não possui uma assinatura ativa para acessar o {{ APP_NAME }}.</p>
 
           <div class="features">
             <div class="feature">
@@ -63,6 +63,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../shared/app'
+
 const { user, logout } = useAuth()
 const { checkSubscription } = useSubscription()
 
@@ -113,7 +115,7 @@ onUnmounted(() => {
   window.removeEventListener('pageshow', handleCheckoutReturn)
 })
 
-useHead({ title: 'Assinar - Irmandade Club' })
+useHead({ title: `Assinar - ${APP_NAME}` })
 </script>
 
 <style scoped>

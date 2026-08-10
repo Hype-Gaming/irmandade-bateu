@@ -1,3 +1,6 @@
+// O prefixo "irmandade_" ficou do nome antigo do app e é mantido de propósito:
+// renomear a chave invalida o cache de quem já usa o app (todo mundo cairia no
+// modal de assinatura de novo até a próxima consulta).
 const SUBSCRIPTION_SESSION_KEY = 'irmandade_subscription'
 const MODAL_DISMISSED_KEY = 'irmandade_modal_dismissed'
 const CACHE_TTL_MS = 5 * 60 * 1000

@@ -106,6 +106,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../../shared/app'
+
 definePageMeta({ middleware: 'admin' })
 
 interface ProcessedEntry {
@@ -196,7 +198,7 @@ onMounted(async () => {
   }
 })
 
-useHead({ title: 'Admin – Irmandade Club' })
+useHead({ title: `Admin – ${APP_NAME}` })
 </script>
 
 <style>
