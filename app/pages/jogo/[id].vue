@@ -721,8 +721,11 @@ const normalizeWinner = (rawWinner: unknown, rawColor: string | undefined, rawSc
 // URL do iframe carregada da API
 const iframeUrl = ref<string>('')
 
-// APIs de resultados por jogo — catalogador
-const CATALOGADOR_BASE = 'https://casino-data.grupoautoma.com'
+// APIs de resultados por jogo — catalogador.
+// Passa pelo proxy do próprio servidor (server/api/casino-results.get.ts) em vez
+// de chamar o casino-data.grupoautoma.com direto: o servidor deles bloqueia (403)
+// domínios fora da allowlist, e o proxy repassa a chamada de um domínio liberado.
+const CATALOGADOR_BASE = '/api/casino-results'
 
 // Config do WSS vem da API via fetchGameConfig (useGame)
 // gameSignalConfig é populado no loadGame antes de conectar o WS
@@ -1281,7 +1284,7 @@ const fetchResults = async () => {
 
     for (const cfg of configs) {
       const candidate = await $fetch<CatalogadorResponse>(
-        `${CATALOGADOR_BASE}/results`,
+        CATALOGADOR_BASE,
         {
           cache: 'no-store',
           params: {
