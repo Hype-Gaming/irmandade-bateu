@@ -945,8 +945,8 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 
 .brand-icon {
   font-size: 30px;
-  color: #00ccff;
-  filter: drop-shadow(0 0 10px rgba(0, 204, 255, 0.45));
+  color: #ff1493;
+  filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.45));
 }
 
 .brand-text {
@@ -989,8 +989,8 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 }
 
 .ghost-btn:hover:not(:disabled) {
-  border-color: #00ccff;
-  color: #00ccff;
+  border-color: #ff1493;
+  color: #ff1493;
   transform: translateY(-1px);
 }
 
@@ -1064,11 +1064,11 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 }
 
 /* glow da cor do accent no hover */
-.stat-card.accent-blue:hover { border-color: rgba(0, 204, 255, 0.4); box-shadow: var(--adm-shadow-lift), var(--adm-glow-cyan); }
-.stat-card.accent-green:hover { border-color: rgba(34, 197, 94, 0.4); box-shadow: var(--adm-shadow-lift), var(--adm-glow-green); }
-.stat-card.accent-purple:hover { border-color: rgba(168, 85, 247, 0.4); box-shadow: var(--adm-shadow-lift), var(--adm-glow-purple); }
-.stat-card.accent-gold:hover { border-color: rgba(245, 197, 66, 0.4); box-shadow: var(--adm-shadow-lift), var(--adm-glow-gold); }
-.stat-card.accent-cyan:hover { border-color: rgba(34, 211, 238, 0.4); box-shadow: var(--adm-shadow-lift), var(--adm-glow-cyan); }
+.stat-card.accent-blue:hover { border-color: rgba(255, 20, 147, 0.4); box-shadow: var(--adm-shadow-lift), var(--adm-glow-cyan); }
+.stat-card.accent-green:hover { border-color: rgba(255, 122, 200, 0.42); box-shadow: var(--adm-shadow-lift), var(--adm-glow-cyan); }
+.stat-card.accent-purple:hover { border-color: rgba(255, 77, 184, 0.42); box-shadow: var(--adm-shadow-lift), var(--adm-glow-purple); }
+.stat-card.accent-gold:hover { border-color: rgba(255, 179, 220, 0.42); box-shadow: var(--adm-shadow-lift), var(--adm-glow-gold); }
+.stat-card.accent-cyan:hover { border-color: rgba(255, 20, 147, 0.4); box-shadow: var(--adm-shadow-lift), var(--adm-glow-cyan); }
 .stat-card.accent-red:hover { border-color: rgba(239, 68, 68, 0.4); box-shadow: var(--adm-shadow-lift), var(--adm-glow-red); }
 
 /* card "Em risco" pulsando quando há usuários em risco */
@@ -1091,10 +1091,10 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
   font-size: 24px;
 }
 
-.accent-blue .stat-icon { background: rgba(0, 204, 255, 0.12); color: #00ccff; }
-.accent-green .stat-icon { background: rgba(34, 197, 94, 0.12); color: #22c55e; }
-.accent-purple .stat-icon { background: rgba(168, 85, 247, 0.12); color: #a855f7; }
-.accent-gold .stat-icon { background: rgba(245, 197, 66, 0.12); color: #f5c542; }
+.accent-blue .stat-icon { background: rgba(255, 20, 147, 0.12); color: #ff1493; }
+.accent-green .stat-icon { background: rgba(255, 122, 200, 0.12); color: #ff7ac8; }
+.accent-purple .stat-icon { background: rgba(255, 77, 184, 0.12); color: #ff4db8; }
+.accent-gold .stat-icon { background: rgba(255, 179, 220, 0.12); color: #ffb3dc; }
 
 .stat-value {
   font-size: 24px;
@@ -1148,9 +1148,9 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 .count-pill {
   font-size: 12px;
   font-weight: 700;
-  color: #00ccff;
-  background: rgba(0, 204, 255, 0.1);
-  border: 1px solid rgba(0, 204, 255, 0.25);
+  color: #ff1493;
+  background: rgba(255, 20, 147, 0.1);
+  border: 1px solid rgba(255, 20, 147, 0.25);
   border-radius: 999px;
   padding: 2px 9px;
 }
@@ -1170,10 +1170,10 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
   align-items: center;
   gap: 7px;
   padding: 10px 14px;
-  background: rgba(0, 204, 255, 0.08);
-  border: 1px solid rgba(0, 204, 255, 0.3);
+  background: rgba(255, 20, 147, 0.08);
+  border: 1px solid rgba(255, 20, 147, 0.3);
   border-radius: 10px;
-  color: #00ccff;
+  color: #ff1493;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -1182,8 +1182,8 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 }
 
 .export-btn:hover:not(:disabled) {
-  background: rgba(0, 204, 255, 0.14);
-  border-color: rgba(0, 204, 255, 0.5);
+  background: rgba(255, 20, 147, 0.14);
+  border-color: rgba(255, 20, 147, 0.5);
 }
 
 .export-btn:active:not(:disabled) {
@@ -1226,8 +1226,8 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 }
 
 .search-input:focus {
-  border-color: #00ccff;
-  box-shadow: 0 0 0 3px rgba(0, 204, 255, 0.12);
+  border-color: #ff1493;
+  box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.12);
 }
 
 .search-input::placeholder {
@@ -1293,7 +1293,7 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 }
 
 .data-table tbody tr:hover {
-  background: linear-gradient(90deg, rgba(0, 204, 255, 0.06), rgba(0, 204, 255, 0) 38%), #141419;
+  background: linear-gradient(90deg, rgba(255, 20, 147, 0.06), rgba(255, 20, 147, 0) 38%), #141419;
 }
 
 .data-table tbody tr:hover td:first-child {
@@ -1314,9 +1314,9 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #00ccff33, #00ccff11);
-  border: 1px solid rgba(0, 204, 255, 0.25);
-  color: #00ccff;
+  background: linear-gradient(135deg, #ff149333, #ff149311);
+  border: 1px solid rgba(255, 20, 147, 0.25);
+  color: #ff1493;
   font-size: 12px;
   font-weight: 700;
   display: flex;
@@ -1353,9 +1353,9 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 }
 
 .brand-chip {
-  background: rgba(0, 204, 255, 0.1);
-  border: 1px solid rgba(0, 204, 255, 0.25);
-  color: #00ccff;
+  background: rgba(255, 20, 147, 0.1);
+  border: 1px solid rgba(255, 20, 147, 0.25);
+  color: #ff1493;
   border-radius: 999px;
   padding: 3px 10px;
   font-size: 12px;
@@ -1453,8 +1453,8 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 }
 
 .load-more:hover:not(:disabled) {
-  border-color: #00ccff;
-  color: #00ccff;
+  border-color: #ff1493;
+  color: #ff1493;
 }
 
 .load-more:disabled {
@@ -1846,7 +1846,7 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 }
 
 /* ---------- v2: cards extras ---------- */
-.accent-cyan .stat-icon { background: rgba(34, 211, 238, 0.12); color: #22d3ee; }
+.accent-cyan .stat-icon { background: rgba(255, 20, 147, 0.12); color: #ff1493; }
 .accent-red .stat-icon { background: rgba(239, 68, 68, 0.12); color: #ef4444; }
 
 .stat-clickable {
@@ -1908,14 +1908,14 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 .block-btn:focus-visible,
 .load-more:focus-visible,
 .stat-clickable:focus-visible {
-  outline: 2px solid rgba(0, 204, 255, 0.55);
+  outline: 2px solid rgba(255, 20, 147, 0.55);
   outline-offset: 2px;
 }
 
 .chip.on {
-  border-color: rgba(0, 204, 255, 0.5);
-  background: rgba(0, 204, 255, 0.1);
-  color: #00ccff;
+  border-color: rgba(255, 20, 147, 0.5);
+  background: rgba(255, 20, 147, 0.1);
+  color: #ff1493;
 }
 
 .chip-amber.on {
@@ -1933,7 +1933,7 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 .chip-purple.on {
   border-color: rgba(168, 85, 247, 0.5);
   background: rgba(168, 85, 247, 0.12);
-  color: #c084fc;
+  color: #ff7ac8;
 }
 
 .chip-clear { border-style: dashed; }
@@ -1950,7 +1950,7 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
   outline: none;
 }
 
-.brand-select:focus { border-color: #00ccff; }
+.brand-select:focus { border-color: #ff1493; }
 
 /* ---------- v2: tags de risco ---------- */
 .risk-chip {
@@ -1983,13 +1983,13 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 .risk-noaccess {
   background: rgba(168, 85, 247, 0.12);
   border: 1px solid rgba(168, 85, 247, 0.4);
-  color: #c084fc;
+  color: #ff7ac8;
 }
 
 .sub-only-chip {
-  background: rgba(0, 204, 255, 0.1);
-  border: 1px solid rgba(0, 204, 255, 0.32);
-  color: #00ccff;
+  background: rgba(255, 20, 147, 0.1);
+  border: 1px solid rgba(255, 20, 147, 0.32);
+  color: #ff1493;
   font-weight: 600;
 }
 
@@ -2041,14 +2041,14 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
   transition: border-color 0.18s, color 0.18s, background-color 0.18s;
 }
 
-.status-select:focus { border-color: #00ccff; }
+.status-select:focus { border-color: #ff1493; }
 .status-select option { background: #161616; color: #eee; }
 
 /* cor por etapa */
 .status-select.st-contatado {
-  color: #00ccff;
-  border-color: rgba(0, 204, 255, 0.4);
-  background-color: rgba(0, 204, 255, 0.08);
+  color: #ff1493;
+  border-color: rgba(255, 20, 147, 0.4);
+  background-color: rgba(255, 20, 147, 0.08);
 }
 .status-select.st-respondeu {
   color: #f59e0b;
@@ -2078,7 +2078,7 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
   background-color: rgba(239, 68, 68, 0.08);
 }
 .tag-select.tg-noaccess {
-  color: #c084fc;
+  color: #ff7ac8;
   border-color: rgba(168, 85, 247, 0.4);
   background-color: rgba(168, 85, 247, 0.1);
 }
@@ -2129,8 +2129,8 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 
 .ftd-field input:focus,
 .ftd-select:focus {
-  border-color: #00ccff;
-  box-shadow: 0 0 0 3px rgba(0, 204, 255, 0.12);
+  border-color: #ff1493;
+  box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.12);
 }
 
 .ftd-field input:disabled,
@@ -2145,13 +2145,13 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
   padding: 11px 20px;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(135deg, #00ccff, #0088cc);
+  background: linear-gradient(135deg, #ff1493, #b80067);
   color: #001018;
   font-size: 14px;
   font-weight: 800;
   cursor: pointer;
   white-space: nowrap;
-  box-shadow: 0 6px 20px rgba(0, 204, 255, 0.22);
+  box-shadow: 0 6px 20px rgba(255, 20, 147, 0.22);
   transition: opacity 0.18s, transform 0.15s;
 }
 
@@ -2180,7 +2180,7 @@ useHead({ title: `Dashboard – Admin ${APP_NAME}` })
 }
 
 .ftd-hint :deep(svg) {
-  color: #00ccff;
+  color: #ff1493;
   flex-shrink: 0;
 }
 

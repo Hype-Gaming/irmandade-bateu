@@ -133,7 +133,7 @@ const handleCheck = async () => {
 
 .crown-icon {
   font-size: 24px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .modal-body {
@@ -183,7 +183,7 @@ const handleCheck = async () => {
 }
 
 .email-input:focus {
-  border-color: #00ccff;
+  border-color: #ff1493;
 }
 
 .email-input::placeholder {
@@ -217,7 +217,7 @@ const handleCheck = async () => {
   gap: 8px;
   width: 100%;
   padding: 14px;
-  background: #00ccff;
+  background: #ff1493;
   color: #000;
   font-size: 15px;
   font-weight: 700;
@@ -228,7 +228,7 @@ const handleCheck = async () => {
 }
 
 .btn-verificar:hover:not(:disabled) {
-  background: #00b8e6;
+  background: #e6008a;
 }
 
 .btn-verificar:disabled {
@@ -260,8 +260,8 @@ const handleCheck = async () => {
   width: 100%;
   padding: 14px;
   background: transparent;
-  border: 1px solid #00ccff;
-  color: #00ccff;
+  border: 1px solid #ff1493;
+  color: #ff1493;
   font-size: 15px;
   font-weight: 700;
   border-radius: 10px;
@@ -271,7 +271,7 @@ const handleCheck = async () => {
 }
 
 .btn-assinar:hover {
-  background: rgba(0, 204, 255, 0.08);
+  background: rgba(255, 20, 147, 0.08);
 }
 
 .checkout-indisponivel {

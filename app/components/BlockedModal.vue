@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <div v-if="isBlocked" class="blocked-modal-overlay">
-      <div class="blocked-art-card">
+      <div class="blocked-art-card" role="dialog" aria-modal="true" aria-label="Acesso bloqueado">
         <button class="close-x" aria-label="Sair" @click="handleExit">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <line x1="18" y1="6" x2="6" y2="18" />
@@ -9,11 +9,19 @@
           </svg>
         </button>
 
-        <!-- A arte aparece inteira; o botão de suporte fica na faixa abaixo -->
-        <img :src="artUrl" alt="Acesso bloqueado" class="blocked-art" />
+        <!-- A arte aparece inteira e também leva ao suporte; o botão fica na faixa abaixo -->
+        <a
+          :href="supportUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="blocked-art-link"
+          aria-label="Falar com o suporte para desbloquear o acesso"
+        >
+          <img :src="artUrl" alt="Acesso bloqueado" class="blocked-art" />
+        </a>
 
         <div class="blocked-actions">
-          <a :href="supportUrl" target="_blank" class="support-button">
+          <a :href="supportUrl" target="_blank" rel="noopener noreferrer" class="support-button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
             </svg>
@@ -44,7 +52,7 @@ const handleExit = () => {
 .blocked-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.78);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,6 +74,12 @@ const handleExit = () => {
   display: flex;
   flex-direction: column;
   animation: blocked-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.blocked-art-link {
+  display: block;
+  line-height: 0;
+  min-height: 0;
 }
 
 .blocked-art {
@@ -167,8 +181,8 @@ const handleExit = () => {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: #fff;
   cursor: pointer;
   backdrop-filter: blur(6px);

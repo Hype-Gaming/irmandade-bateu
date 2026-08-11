@@ -63,7 +63,7 @@ body {
 
 #app {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #12000a 0%, #3a0024 48%, #ff1493 100%);
 }
 </style>
 

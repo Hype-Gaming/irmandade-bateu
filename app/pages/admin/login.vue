@@ -127,8 +127,8 @@ useHead({ title: `Admin Login – ${APP_NAME}` })
 
 .shield-icon {
   font-size: 40px;
-  color: #00ccff;
-  filter: drop-shadow(0 0 14px rgba(0, 204, 255, 0.5));
+  color: #ff1493;
+  filter: drop-shadow(0 0 14px rgba(255, 20, 147, 0.5));
 }
 
 .login-header h1 {
@@ -192,8 +192,8 @@ useHead({ title: `Admin Login – ${APP_NAME}` })
 }
 
 .input-wrap input:focus {
-  border-color: #00ccff;
-  box-shadow: 0 0 0 3px rgba(0, 204, 255, 0.12);
+  border-color: #ff1493;
+  box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.12);
 }
 
 .input-wrap input::placeholder {
@@ -222,7 +222,7 @@ useHead({ title: `Admin Login – ${APP_NAME}` })
   justify-content: center;
   gap: 8px;
   padding: 14px;
-  background: linear-gradient(135deg, #00ccff 0%, #0088cc 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #b80067 100%);
   color: #000;
   font-size: 15px;
   font-weight: 800;
@@ -234,14 +234,14 @@ useHead({ title: `Admin Login – ${APP_NAME}` })
 }
 
 .submit-btn {
-  box-shadow: 0 6px 22px rgba(0, 204, 255, 0.22);
+  box-shadow: 0 6px 22px rgba(255, 20, 147, 0.22);
   transition: opacity 0.2s, transform 0.2s var(--adm-ease), box-shadow 0.2s;
 }
 
 .submit-btn:hover:not(:disabled) {
   opacity: 0.92;
   transform: translateY(-1px);
-  box-shadow: 0 10px 30px rgba(0, 204, 255, 0.32);
+  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.32);
 }
 
 .submit-btn:active:not(:disabled) {

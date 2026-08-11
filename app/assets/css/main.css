@@ -23,10 +23,10 @@ body {
 }
 
 :root {
-  --color-primary: #2ab885;
-  --color-secondary: #ffb300;
+  --color-primary: #ff1493;
+  --color-secondary: #ffd1e8;
   --color-bg-light: #ffffff;
-  --color-bg-dark: #001a10;
+  --color-bg-dark: #12000a;
   --color-text: #000000;
   --color-text-light: #ffffff;
   --color-text-muted: #8f8f8f;

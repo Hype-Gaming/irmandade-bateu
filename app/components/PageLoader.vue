@@ -90,12 +90,12 @@ nuxtApp.hook('page:finish', () => {
 }
 
 .spinner-ring:nth-child(1) {
-  border-top-color: #00ccff;
+  border-top-color: #ff1493;
   animation-delay: 0s;
 }
 
 .spinner-ring:nth-child(2) {
-  border-right-color: #00ccff;
+  border-right-color: #ff1493;
   animation-delay: 0.15s;
   width: 80%;
   height: 80%;
@@ -104,7 +104,7 @@ nuxtApp.hook('page:finish', () => {
 }
 
 .spinner-ring:nth-child(3) {
-  border-bottom-color: #00ccff;
+  border-bottom-color: #ff1493;
   animation-delay: 0.3s;
   width: 60%;
   height: 60%;

@@ -433,7 +433,7 @@ useHead({ title: 'Admin – Notificações' })
 
 .eyebrow {
   margin: 0 0 8px;
-  color: #00ccff;
+  color: #ff1493;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 12px;
@@ -467,7 +467,7 @@ useHead({ title: 'Admin – Notificações' })
   transition: border-color 0.2s;
 }
 
-.back-link:hover { border-color: #00ccff; }
+.back-link:hover { border-color: #ff1493; }
 
 .logout-btn {
   display: inline-flex;
@@ -501,7 +501,7 @@ useHead({ title: 'Admin – Notificações' })
   font-size: 14px;
 }
 
-.current-user :deep(svg) { color: #00ccff; font-size: 18px; flex-shrink: 0; }
+.current-user :deep(svg) { color: #ff1493; font-size: 18px; flex-shrink: 0; }
 .current-user strong { color: #fff; }
 
 /* Segmented control */
@@ -535,9 +535,9 @@ useHead({ title: 'Admin – Notificações' })
 }
 
 .segmented button.active {
-  background: linear-gradient(135deg, #00ccff 0%, #0088cc 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #b80067 100%);
   color: #001018;
-  box-shadow: 0 4px 14px rgba(0, 204, 255, 0.25);
+  box-shadow: 0 4px 14px rgba(255, 20, 147, 0.25);
 }
 
 .admin-form { display: grid; gap: 18px; }
@@ -563,8 +563,8 @@ useHead({ title: 'Admin – Notificações' })
 
 .admin-form input:focus,
 .admin-form textarea:focus {
-  border-color: #00ccff;
-  box-shadow: 0 0 0 3px rgba(0, 204, 255, 0.12);
+  border-color: #ff1493;
+  box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.12);
 }
 
 /* força o ícone do date/time picker a ficar visível no tema escuro */
@@ -610,7 +610,7 @@ useHead({ title: 'Admin – Notificações' })
   flex: 1;
   border: none;
   border-radius: 14px;
-  background: linear-gradient(135deg, #00ccff 0%, #0088cc 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #b80067 100%);
   color: #000;
   font-size: 15px;
   font-weight: 800;
@@ -620,11 +620,11 @@ useHead({ title: 'Admin – Notificações' })
   justify-content: center;
   gap: 10px;
   cursor: pointer;
-  box-shadow: 0 6px 22px rgba(0, 204, 255, 0.2);
+  box-shadow: 0 6px 22px rgba(255, 20, 147, 0.2);
   transition: opacity 0.2s, transform 0.2s var(--adm-ease), box-shadow 0.2s;
 }
 
-.submit-btn:hover:not(:disabled) { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 10px 30px rgba(0, 204, 255, 0.3); }
+.submit-btn:hover:not(:disabled) { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3); }
 .submit-btn:active:not(:disabled) { transform: translateY(0) scale(0.98); }
 .submit-btn:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
 
@@ -657,13 +657,13 @@ useHead({ title: 'Admin – Notificações' })
   height: 38px;
   flex-shrink: 0;
   border-radius: 9px;
-  background: rgba(0, 204, 255, 0.12);
+  background: rgba(255, 20, 147, 0.12);
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.sub-icon :deep(svg) { color: #7dd3fc; font-size: 18px; }
+.sub-icon :deep(svg) { color: #ff7ac8; font-size: 18px; }
 
 .sub-main { display: grid; gap: 3px; min-width: 0; }
 .sub-email { color: #fff; font-size: 14px; word-break: break-all; }
@@ -691,7 +691,7 @@ useHead({ title: 'Admin – Notificações' })
   transition: border-color 0.2s;
 }
 
-.ghost-refresh:hover:not(:disabled) { border-color: #00ccff; }
+.ghost-refresh:hover:not(:disabled) { border-color: #ff1493; }
 
 .sched-list { display: grid; gap: 12px; }
 
@@ -718,7 +718,7 @@ useHead({ title: 'Admin – Notificações' })
   gap: 6px;
   font-size: 12px;
   font-weight: 700;
-  color: #7dd3fc;
+  color: #ff7ac8;
 }
 
 .sched-status {
@@ -729,7 +729,7 @@ useHead({ title: 'Admin – Notificações' })
   border-radius: 999px;
 }
 
-.sched-status.active { background: rgba(0, 204, 255, 0.14); color: #7dd3fc; }
+.sched-status.active { background: rgba(255, 20, 147, 0.14); color: #ff7ac8; }
 .sched-status.sending { background: rgba(245, 158, 11, 0.16); color: #fcd34d; }
 .sched-status.done { background: rgba(16, 185, 129, 0.14); color: #6ee7b7; }
 .sched-status.canceled { background: rgba(148, 163, 184, 0.14); color: #94a3b8; }

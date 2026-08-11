@@ -127,14 +127,14 @@ function dismissUpdate() {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, #00ccff 0%, #0099cc 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #c6006f 100%);
   border-radius: 16px;
   padding: 16px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  box-shadow: 0 8px 32px rgba(0, 204, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 20, 147, 0.3);
   z-index: 99999;
   max-width: calc(100% - 40px);
   width: 450px;
@@ -192,7 +192,7 @@ function dismissUpdate() {
   background: #fff;
   border: none;
   border-radius: 8px;
-  color: #0099cc;
+  color: #c6006f;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
