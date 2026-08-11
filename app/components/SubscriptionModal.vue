@@ -117,8 +117,8 @@ const handleCheck = async () => {
 }
 
 .modal-header {
-  background: linear-gradient(135deg, #0a1a2a 0%, #001a30 100%);
-  border-bottom: 1px solid #1a2a3a;
+  background: linear-gradient(135deg, #280516 0%, #120109 100%);
+  border-bottom: 1px solid rgba(255, 20, 147, 0.22);
   padding: 20px 24px;
 }
 

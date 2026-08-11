@@ -61,8 +61,9 @@
         <h3 class="sidebar-title">Avisos</h3>
 
         <div class="news-card featured">
-          <div class="news-badge">IA</div>
-          <div class="news-title-big">Club</div>
+          <img src="/logo.png" :alt="APP_NAME" class="featured-brand-logo" />
+          <div class="news-badge">COMUNIDADE OFICIAL</div>
+          <div class="news-title-big">Clube da BB</div>
         </div>
 
         <!-- Ativar notificações push (default/granted e ainda não inscrito) -->
@@ -93,7 +94,7 @@
           </div>
         </div>
 
-        <!-- Banner: Entre no grupo do Telegram (dispensável) -->
+        <!-- Banner da comunidade oficial (dispensável) -->
         <a
           v-if="showTelegramBanner"
           href="https://t.me/+cRvtg60llV4xMGUx"
@@ -108,7 +109,7 @@
           >
             <Icon name="ph:x-bold" />
           </button>
-          <img src="/banners/telegram.png" alt="Acesse meu grupo no Telegram" class="telegram-banner-img" />
+          <img src="/banners/clube-bb.png" alt="Entre na comunidade oficial do Clube da BB" class="telegram-banner-img" />
         </a>
 
         <a
@@ -296,6 +297,10 @@ definePageMeta({
   layout: 'default'
 })
 
+useHead({
+  title: `${APP_NAME} - Inteligência para Bac Bo`
+})
+
 const { user, logout, isAuthenticated, formattedBalance, fetchUserProfile } = useAuth()
 const { openModal: openDepositModal } = useDeposit()
 const { isSubscribed, isPaid, init: initSubscription, openModal } = useSubscription()
@@ -362,7 +367,7 @@ onMounted(() => {
 })
 
 const banners = ref([
-  { image: '/banners/ENTRE-NA-MINHA-COMUNIDADE-LC.png', alt: 'Sorteio diário no WhatsApp', href: 'https://chat.whatsapp.com/CG4CPX8zJqJ55G2qVoUMJq?s=sh&p=i&ilr=1' }
+  { image: '/banner-clube-da-bb.png', alt: 'Clube da BB - análises e estratégias para Bac Bo' }
 ])
 
 const currentBanner = ref(0)
@@ -764,23 +769,36 @@ const claudeGames = ref([
 }
 
 .news-card.featured {
-  background: linear-gradient(135deg, #001a2a 0%, #002a3a 100%);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 20, 147, 0.24), transparent 56%),
+    linear-gradient(145deg, #240414 0%, #100107 100%);
   border: 1px solid #ff1493;
   border-radius: 12px;
-  padding: 24px;
+  padding: 20px;
   margin-bottom: 16px;
   text-align: center;
+  overflow: hidden;
+}
+
+.featured-brand-logo {
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  display: block;
+  margin: -8px auto 4px;
+  filter: drop-shadow(0 8px 18px rgba(255, 20, 147, 0.28));
 }
 
 .news-badge {
   color: #ff1493;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin-bottom: 6px;
 }
 
 .news-title-big {
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 800;
   color: #ffffff;
   text-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
@@ -844,7 +862,7 @@ const claudeGames = ref([
   padding: 14px;
   margin-bottom: 12px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #001a2a 0%, #00263a 100%);
+  background: linear-gradient(135deg, #220411 0%, #120109 100%);
   border: 1px solid rgba(255, 20, 147, 0.4);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -889,7 +907,7 @@ const claudeGames = ref([
 }
 
 .push-prompt-text span {
-  color: #9bbccc;
+  color: #c9a7b9;
   font-size: 12px;
   line-height: 1.3;
 }

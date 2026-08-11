@@ -16,6 +16,7 @@ export default defineNuxtConfig({
   // metas de PWA e Open Graph nunca chegavam ao browser. Aqui elas de fato saem.
   app: {
     head: {
+      title: 'Clube da BB',
       htmlAttrs: { lang: 'pt-BR' },
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -38,16 +39,16 @@ export default defineNuxtConfig({
         // Open Graph / Facebook. As URLs de imagem precisam ser absolutas:
         // os scrapers do Facebook/WhatsApp ignoram caminho relativo.
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://app.clubdabb2.online/' },
+        { property: 'og:url', content: 'https://app.clubedabb.online/' },
         { property: 'og:title', content: 'Clube da BB - Análises e Estatísticas em Tempo Real' },
         { property: 'og:description', content: 'Plataforma exclusiva com análises inteligentes e estatísticas em tempo real para jogos ao vivo.' },
-        { property: 'og:image', content: 'https://app.clubdabb2.online/og-image.jpg' },
+        { property: 'og:image', content: 'https://app.clubedabb.online/og-image.jpg' },
         // Twitter
         { property: 'twitter:card', content: 'summary_large_image' },
-        { property: 'twitter:url', content: 'https://app.clubdabb2.online/' },
+        { property: 'twitter:url', content: 'https://app.clubedabb.online/' },
         { property: 'twitter:title', content: 'Clube da BB - Análises em Tempo Real' },
         { property: 'twitter:description', content: 'Plataforma exclusiva com análises inteligentes e estatísticas em tempo real.' },
-        { property: 'twitter:image', content: 'https://app.clubdabb2.online/og-image.jpg' }
+        { property: 'twitter:image', content: 'https://app.clubedabb.online/og-image.jpg' }
       ]
     }
   },
