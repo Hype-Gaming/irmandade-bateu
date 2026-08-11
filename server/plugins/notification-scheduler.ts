@@ -48,7 +48,7 @@ export default defineNitroPlugin(() => {
             title: job.title,
             body: job.body,
             url: job.url || '/',
-            icon: job.icon || '/images/logo.png'
+            icon: job.icon || '/icon-192.png'
           })
         } catch (err) {
           console.error('[scheduler] Falha ao disparar agendamento:', err)

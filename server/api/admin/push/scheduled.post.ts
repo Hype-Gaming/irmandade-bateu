@@ -48,7 +48,7 @@ export default defineEventHandler(async (event) => {
     title,
     body: message,
     url: body?.url?.trim() || '/',
-    icon: '/images/logo.png',
+    icon: '/icon-192.png',
     type,
     time: body?.time?.trim() || null,
     nextRunAt: runAt,
