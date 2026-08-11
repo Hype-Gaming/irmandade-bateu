@@ -13,7 +13,7 @@
         <h2 class="kyc-title">Verificação KYC Obrigatória</h2>
         
         <p class="kyc-description">
-          Para acessar a <strong>Irmandade Club</strong>, você precisa completar a verificação de identidade (KYC) na sua conta da casa de apostas.
+          Para acessar a <strong>{{ APP_NAME }}</strong>, você precisa completar a verificação de identidade (KYC) na sua conta da casa de apostas.
         </p>
         
         <div class="kyc-steps">
@@ -62,6 +62,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../shared/app'
+
 const props = defineProps<{
   show: boolean
 }>()
@@ -122,15 +124,15 @@ onUnmounted(() => {
 
 .kyc-modal {
   background: linear-gradient(145deg, #111111, #0a0a0a);
-  border: 2px solid #00ccff;
+  border: 2px solid #ff1493;
   border-radius: 20px;
   padding: 40px;
   max-width: 480px;
   width: 100%;
   text-align: center;
   box-shadow: 
-    0 0 50px rgba(0, 204, 255, 0.3),
-    0 0 100px rgba(0, 204, 255, 0.1);
+    0 0 50px rgba(255, 20, 147, 0.3),
+    0 0 100px rgba(255, 20, 147, 0.1);
   animation: modalAppear 0.3s ease-out;
 }
 
@@ -149,18 +151,18 @@ onUnmounted(() => {
   width: 80px;
   height: 80px;
   margin: 0 auto 24px;
-  background: rgba(0, 204, 255, 0.1);
+  background: rgba(255, 20, 147, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #00ccff;
+  border: 2px solid #ff1493;
 }
 
 .kyc-icon svg {
   width: 40px;
   height: 40px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .kyc-title {
@@ -178,12 +180,12 @@ onUnmounted(() => {
 }
 
 .kyc-description strong {
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .kyc-steps {
-  background: rgba(0, 204, 255, 0.05);
-  border: 1px solid rgba(0, 204, 255, 0.2);
+  background: rgba(255, 20, 147, 0.05);
+  border: 1px solid rgba(255, 20, 147, 0.2);
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 28px;
@@ -205,7 +207,7 @@ onUnmounted(() => {
 .step-number {
   width: 28px;
   height: 28px;
-  background: #00ccff;
+  background: #ff1493;
   color: #000;
   font-weight: 700;
   font-size: 14px;
@@ -228,7 +230,7 @@ onUnmounted(() => {
   gap: 10px;
   width: 100%;
   padding: 16px 24px;
-  background: linear-gradient(135deg, #00ccff, #0099cc);
+  background: linear-gradient(135deg, #ff1493, #c6006f);
   color: #000;
   font-weight: 700;
   font-size: 16px;
@@ -242,15 +244,15 @@ onUnmounted(() => {
 
 @keyframes pulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(0, 204, 255, 0.5);
+    box-shadow: 0 0 0 0 rgba(255, 20, 147, 0.5);
   }
   50% {
-    box-shadow: 0 0 20px 10px rgba(0, 204, 255, 0);
+    box-shadow: 0 0 20px 10px rgba(255, 20, 147, 0);
   }
 }
 
 .kyc-button:hover {
-  background: linear-gradient(135deg, #00ddff, #00aadd);
+  background: linear-gradient(135deg, #ff4db8, #e6008a);
   transform: translateY(-2px);
 }
 

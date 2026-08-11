@@ -4,7 +4,7 @@
     <header class="header">
       <div class="header-left">
         <NuxtLink to="/">
-          <img src="/logo.png" alt="Irmandade Club" class="header-logo" />
+          <img src="/logo.png" :alt="APP_NAME" class="header-logo" />
         </NuxtLink>
       </div>
       <div class="header-right">
@@ -363,8 +363,10 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../shared/app'
+
 useHead({
-  title: 'Gestão de Banca - Irmandade Club'
+  title: `Gestão de Banca - ${APP_NAME}`
 })
 
 // Dados do componente
@@ -377,6 +379,9 @@ const editing = ref({
   field: null as string | null
 })
 const editValue = ref(0)
+// Prefixo "irmandade_" mantido de propósito junto com a troca de nome: essa
+// chave guarda a banca que o usuário já digitou, e renomeá-la apagaria os dados
+// de todo mundo (o app leria uma chave nova e vazia).
 const dataKey = 'irmandade_gestao_banca_data'
 const savedDate = ref<Date | null>(null)
 
@@ -635,8 +640,8 @@ onMounted(() => {
 }
 
 .btn-back:hover {
-  border-color: #00ccff;
-  color: #00ccff;
+  border-color: #ff1493;
+  color: #ff1493;
 }
 
 .main-content {
@@ -668,7 +673,7 @@ onMounted(() => {
 .sphere-1 {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, #00ccff 0%, transparent 70%);
+  background: radial-gradient(circle, #ff1493 0%, transparent 70%);
   top: -300px;
   right: -200px;
 }
@@ -676,7 +681,7 @@ onMounted(() => {
 .sphere-2 {
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, #00ccff 0%, transparent 70%);
+  background: radial-gradient(circle, #ff1493 0%, transparent 70%);
   bottom: -400px;
   left: -300px;
   animation-delay: -5s;
@@ -685,7 +690,7 @@ onMounted(() => {
 .sphere-3 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, #00ccff 0%, transparent 70%);
+  background: radial-gradient(circle, #ff1493 0%, transparent 70%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -734,7 +739,7 @@ onMounted(() => {
 }
 
 .gradient-text {
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .page-subtitle {
@@ -811,7 +816,7 @@ onMounted(() => {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #00ccff, transparent);
+  background: linear-gradient(90deg, transparent, #ff1493, transparent);
   animation: shimmer 3s infinite;
 }
 
@@ -874,8 +879,8 @@ onMounted(() => {
 }
 
 .banca-icon {
-  background-color: rgba(0, 204, 255, 0.2);
-  color: #00ccff;
+  background-color: rgba(255, 20, 147, 0.2);
+  color: #ff1493;
 }
 
 .meta-icon {
@@ -900,7 +905,7 @@ onMounted(() => {
 }
 
 .input-field-container:focus-within {
-  border-color: #00ccff;
+  border-color: #ff1493;
 }
 
 .input-prefix, .input-suffix {
@@ -955,7 +960,7 @@ onMounted(() => {
 .calculate-button {
   width: 100%;
   padding: 18px 30px;
-  background: linear-gradient(135deg, #00ccff 0%, #0099cc 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #c6006f 100%);
   border: none;
   border-radius: 16px;
   color: #000000;
@@ -973,7 +978,7 @@ onMounted(() => {
 
 .calculate-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 204, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.4);
 }
 
 .button-glow {
@@ -983,7 +988,7 @@ onMounted(() => {
   transform: translateX(-50%);
   width: 80%;
   height: 40px;
-  background: radial-gradient(ellipse at center, rgba(0, 204, 255, 0.6) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(255, 20, 147, 0.6) 0%, transparent 70%);
   filter: blur(30px);
 }
 
@@ -1003,7 +1008,7 @@ onMounted(() => {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 24px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .tips-grid {
@@ -1029,13 +1034,13 @@ onMounted(() => {
 .tip-icon {
   width: 48px;
   height: 48px;
-  background: rgba(0, 204, 255, 0.1);
+  background: rgba(255, 20, 147, 0.1);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #00ccff;
+  color: #ff1493;
   font-size: 22px;
 }
 
@@ -1395,7 +1400,7 @@ onMounted(() => {
 
 .target-input:focus {
   outline: none;
-  border-color: #00ccff;
+  border-color: #ff1493;
 }
 
 /* Day Actions */
@@ -1485,14 +1490,14 @@ onMounted(() => {
   width: 120px;
   height: 120px;
   margin: 0 auto 30px;
-  background: rgba(0, 204, 255, 0.1);
-  border: 2px solid rgba(0, 204, 255, 0.2);
+  background: rgba(255, 20, 147, 0.1);
+  border: 2px solid rgba(255, 20, 147, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 50px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .empty-content h3 {

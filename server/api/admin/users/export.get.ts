@@ -1,6 +1,7 @@
 import { getDb } from '../../../utils/mongodb'
 import { requireAdminSession } from '../../../utils/adminAuth'
 import { buildUserEnrichmentStages, buildSubsOnlyUnion } from '../../../utils/adminUserEnrichment'
+import { APP_SLUG } from '../../../../shared/app'
 
 const TZ = 'America/Sao_Paulo'
 const MAX_ROWS = 10000
@@ -76,7 +77,7 @@ export default defineEventHandler(async (event) => {
   const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '')
 
   const header = [
-    'Nome', 'E-mail', 'Telefone', 'Assinatura', 'PIX (qtd)', 'Valor PIX',
+    'Nome', 'E-mail', 'Telefone', 'ID Jogador', 'Assinatura', 'PIX (qtd)', 'Valor PIX',
     'Marca', '1o acesso', 'Ultimo acesso', 'Status', 'Risco', 'Status contato'
   ]
 
@@ -86,6 +87,7 @@ export default defineEventHandler(async (event) => {
       cell(u.name || ''),
       cell(u.email || ''),
       cell(u.phone || ''),
+      cell(u.cactus_user_id ?? ''),
       cell(u.subscription === 'paid' ? 'Pago' : 'Free'),
       cell(u.deposits_count ?? 0),
       cell(fmtMoney(u.deposits_sum)),
@@ -103,6 +105,6 @@ export default defineEventHandler(async (event) => {
   const stamp = fmtDate(new Date()).slice(0, 10).replace(/\//g, '-')
 
   setHeader(event, 'Content-Type', 'text/csv; charset=utf-8')
-  setHeader(event, 'Content-Disposition', `attachment; filename="usuarios-irmandade-${stamp}.csv"`)
+  setHeader(event, 'Content-Disposition', `attachment; filename="usuarios-${APP_SLUG}-${stamp}.csv"`)
   return csv
 })

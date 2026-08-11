@@ -450,6 +450,7 @@
 
 <script setup lang="ts">
 import { getCatalogadorQueries, getGameRouteConfig, resolveGameRouteId } from '../../constants/gameRoutes'
+import { APP_NAME } from '../../../shared/app'
 
 const route = useRoute()
 const { isAuthenticated } = useAuth()
@@ -590,15 +591,15 @@ const catalogadorUi = computed(() => {
 const themeStyles = computed(() => {
   if (gameId.value === 'aviator') {
     return {
-      '--accent-color': '#37a7ff',
-      '--player-color': '#4285f4',
-      '--player-color-soft': 'rgba(66, 133, 244, 0.2)',
-      '--player-color-strong': 'rgba(66, 133, 244, 0.45)',
-      '--player-text-color': '#60a5fa',
-      '--banker-color': '#a855f7',
-      '--banker-color-soft': 'rgba(168, 85, 247, 0.2)',
-      '--banker-color-strong': 'rgba(168, 85, 247, 0.45)',
-      '--banker-text-color': '#c084fc',
+      '--accent-color': '#ff1493',
+      '--player-color': '#ff1493',
+      '--player-color-soft': 'rgba(255, 20, 147, 0.18)',
+      '--player-color-strong': 'rgba(255, 20, 147, 0.48)',
+      '--player-text-color': '#ff9bd4',
+      '--banker-color': '#ff4db8',
+      '--banker-color-soft': 'rgba(255, 77, 184, 0.18)',
+      '--banker-color-strong': 'rgba(255, 77, 184, 0.48)',
+      '--banker-text-color': '#ffb3dc',
       '--tie-color': '#ec4899',
       '--tie-color-soft': 'rgba(236, 72, 153, 0.2)',
       '--tie-color-strong': 'rgba(236, 72, 153, 0.45)',
@@ -613,9 +614,9 @@ const themeStyles = computed(() => {
       '--player-color-soft': 'rgba(220, 38, 38, 0.16)',
       '--player-color-strong': 'rgba(220, 38, 38, 0.42)',
       '--player-text-color': '#ffffff',
-      '--banker-color': '#3b82f6',
-      '--banker-color-soft': 'rgba(59, 130, 246, 0.16)',
-      '--banker-color-strong': 'rgba(59, 130, 246, 0.42)',
+      '--banker-color': '#ff1493',
+      '--banker-color-soft': 'rgba(255, 20, 147, 0.16)',
+      '--banker-color-strong': 'rgba(255, 20, 147, 0.42)',
       '--banker-text-color': '#ffffff',
       '--tie-color': '#f59e0b',
       '--tie-color-soft': 'rgba(245, 158, 11, 0.16)',
@@ -644,10 +645,10 @@ const themeStyles = computed(() => {
 
   if (gameId.value === 'baccarat') {
     return {
-      '--accent-color': '#dc2626',
-      '--player-color': '#2563eb',
-      '--player-color-soft': 'rgba(37, 99, 235, 0.15)',
-      '--player-color-strong': 'rgba(37, 99, 235, 0.4)',
+      '--accent-color': '#ff1493',
+      '--player-color': '#ff1493',
+      '--player-color-soft': 'rgba(255, 20, 147, 0.15)',
+      '--player-color-strong': 'rgba(255, 20, 147, 0.4)',
       '--player-text-color': '#ffffff',
       '--banker-color': '#dc2626',
       '--banker-color-soft': 'rgba(220, 38, 38, 0.15)',
@@ -661,10 +662,10 @@ const themeStyles = computed(() => {
   }
 
   return {
-    '--accent-color': '#00ccff',
-    '--player-color': '#3b82f6',
-    '--player-color-soft': 'rgba(59, 130, 246, 0.15)',
-    '--player-color-strong': 'rgba(59, 130, 246, 0.4)',
+    '--accent-color': '#ff1493',
+    '--player-color': '#ff1493',
+    '--player-color-soft': 'rgba(255, 20, 147, 0.15)',
+    '--player-color-strong': 'rgba(255, 20, 147, 0.4)',
     '--player-text-color': '#ffffff',
     '--banker-color': '#ef4444',
     '--banker-color-soft': 'rgba(239, 68, 68, 0.15)',
@@ -721,17 +722,20 @@ const normalizeWinner = (rawWinner: unknown, rawColor: string | undefined, rawSc
 // URL do iframe carregada da API
 const iframeUrl = ref<string>('')
 
-// APIs de resultados por jogo — catalogador
-const CATALOGADOR_BASE = 'https://casino-data.grupoautoma.com'
+// APIs de resultados por jogo — catalogador.
+// Passa pelo proxy do próprio servidor (server/api/casino-results.get.ts) em vez
+// de chamar o casino-data.grupoautoma.com direto: o servidor deles bloqueia (403)
+// domínios fora da allowlist, e o proxy repassa a chamada de um domínio liberado.
+const CATALOGADOR_BASE = '/api/casino-results'
 
 // Config do WSS vem da API via fetchGameConfig (useGame)
 // gameSignalConfig é populado no loadGame antes de conectar o WS
 
 // Possível Entrada - Variáveis
 const gameMode = ref('sinais') // 'sinais' | 'manual'
-const valuePrimaryColor = ref('#00ccff')
-const valueSecondaryColor = ref('#0099cc')
-const valueAccentColor = ref('#66e0ff')
+const valuePrimaryColor = ref('#ff1493')
+const valueSecondaryColor = ref('#c6006f')
+const valueAccentColor = ref('#ff8bd1')
 const headerGradient = computed(() => `linear-gradient(135deg, ${valuePrimaryColor.value} 0%, ${valueSecondaryColor.value} 100%)`)
 const message = ref('Possível Entrada')
 const sinal = ref('')
@@ -1281,7 +1285,7 @@ const fetchResults = async () => {
 
     for (const cfg of configs) {
       const candidate = await $fetch<CatalogadorResponse>(
-        `${CATALOGADOR_BASE}/results`,
+        CATALOGADOR_BASE,
         {
           cache: 'no-store',
           params: {
@@ -1458,14 +1462,17 @@ watch(isAuthenticated, (newVal) => {
 })
 
 useHead({
-  title: () => `${currentGame.value.name} - Irmandade Club`
+  title: () => `${currentGame.value.name} - ${APP_NAME}`
 })
 </script>
 
 <style scoped>
 .jogo-page {
   min-height: 100vh;
-  background: #0a0a0a;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 20, 147, 0.16), transparent 28%),
+    radial-gradient(circle at 92% 14%, rgba(255, 122, 200, 0.11), transparent 24%),
+    linear-gradient(180deg, #090006 0%, #0a0a0a 42%, #050505 100%);
   color: white;
   display: flex;
   flex-direction: column;
@@ -1477,8 +1484,9 @@ useHead({
   justify-content: space-between;
   align-items: center;
   padding: 16px 24px;
-  background: #111111;
-  border-bottom: 1px solid #1a1a1a;
+  background: rgba(17, 7, 14, 0.9);
+  border-bottom: 1px solid rgba(255, 20, 147, 0.16);
+  backdrop-filter: blur(16px);
 }
 
 .header-left {
@@ -1490,7 +1498,8 @@ useHead({
 .game-indicator {
   width: 40px;
   height: 40px;
-  background: #1a1a1a;
+  background: rgba(255, 20, 147, 0.1);
+  border: 1px solid rgba(255, 20, 147, 0.24);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -1549,15 +1558,15 @@ useHead({
   bottom: 16px;
   width: 400px;
   max-width: calc(100% - 32px);
-  background: rgba(15, 15, 15, 0.98);
-  border: 1px solid #333;
+  background: rgba(16, 6, 13, 0.96);
+  border: 1px solid rgba(255, 20, 147, 0.18);
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   z-index: 90;
   backdrop-filter: blur(20px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.55), 0 0 36px rgba(255, 20, 147, 0.08);
 }
 
 /* Botão abrir painel - escondido no desktop */
@@ -1632,8 +1641,8 @@ useHead({
   align-items: center;
   gap: 10px;
   padding: 14px 16px;
-  background: #141414;
-  border: 1px solid #222;
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.12), rgba(255, 122, 200, 0.04));
+  border: 1px solid rgba(255, 20, 147, 0.24);
   border-radius: 12px;
   margin-bottom: 16px;
   font-size: 16px;
@@ -1653,16 +1662,18 @@ useHead({
 
 /* Possível Entrada styles */
 .possivel-entrada-section {
-  background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
-  border-radius: 12px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 122, 200, 0.18), transparent 50%),
+    linear-gradient(135deg, #1d0715 0%, #130910 100%);
+  border-radius: 16px;
   overflow: hidden;
   margin-bottom: 15px;
 }
 
 .possivel-entrada-header {
-  padding: 4px 1rem;
+  padding: 8px 1rem;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(251, 101, 166, 0.3);
+  box-shadow: 0 2px 14px rgba(255, 20, 147, 0.26);
 }
 
 .entrada-message {
@@ -1682,12 +1693,12 @@ useHead({
   justify-content: center;
   will-change: contents;
   contain: content;
-  background-color: #1a1a1a;
+  background: rgba(7, 7, 9, 0.55);
 }
 
 .entrada-indicator {
-  background: linear-gradient(135deg, #2d2d2d 0%, #1f1f1f 100%);
-  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.1) 0%, rgba(20, 10, 18, 0.96) 100%);
+  border-radius: 14px;
   width: 100%;
   padding: 1rem;
   display: flex;
@@ -1697,8 +1708,8 @@ useHead({
   min-height: 80px;
   position: relative;
   overflow: hidden;
-  border: 1px solid #444;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 20, 147, 0.22);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .data-label {
@@ -2166,8 +2177,8 @@ useHead({
 .aviator-theme .filters-section,
 .aviator-theme .results-section,
 .aviator-theme .advanced-stats-section {
-  background: #101818;
-  border-color: rgba(255, 255, 255, 0.06);
+  background: rgba(20, 8, 16, 0.82);
+  border-color: rgba(255, 20, 147, 0.14);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
@@ -2187,7 +2198,7 @@ useHead({
   padding: 0 18px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  background: #1b2424;
+  background: rgba(28, 13, 22, 0.92);
   color: #b7bcc5;
   font-size: 15px;
   font-weight: 700;
@@ -2199,10 +2210,10 @@ useHead({
 }
 
 .aviator-theme .filter-btn.active {
-  background: #37a7ff;
-  border-color: #37a7ff;
-  color: #081015;
-  box-shadow: 0 10px 28px rgba(55, 167, 255, 0.22);
+  background: linear-gradient(135deg, #ff1493, #ff7ac8);
+  border-color: #ff1493;
+  color: #12000a;
+  box-shadow: 0 10px 28px rgba(255, 20, 147, 0.26);
 }
 
 .aviator-theme .filter-btn.active.player,
@@ -2214,8 +2225,8 @@ useHead({
 .aviator-theme .filter-select {
   min-height: 62px;
   padding: 0 20px;
-  background: #111919;
-  border: 1px solid rgba(112, 133, 138, 0.35);
+  background: rgba(16, 8, 14, 0.94);
+  border: 1px solid rgba(255, 122, 200, 0.22);
   border-radius: 18px;
   color: #ffffff;
   font-size: 16px;
@@ -2260,13 +2271,13 @@ useHead({
 }
 
 .aviator-theme .aviator-result-item.player {
-  background: rgba(36, 82, 154, 0.34);
-  color: #4f8fff;
+  background: rgba(255, 20, 147, 0.18);
+  color: #ff9bd4;
 }
 
 .aviator-theme .aviator-result-item.banker {
-  background: rgba(105, 53, 162, 0.34);
-  color: #b15cff;
+  background: rgba(255, 77, 184, 0.18);
+  color: #ffb3dc;
 }
 
 .aviator-theme .aviator-result-item.tie {
@@ -2322,8 +2333,8 @@ useHead({
 }
 
 .aviator-theme .stats-card {
-  background: #152020;
-  border: 1px solid rgba(101, 117, 124, 0.28);
+  background: rgba(20, 8, 16, 0.82);
+  border: 1px solid rgba(255, 122, 200, 0.16);
   border-radius: 22px;
   padding: 18px 16px;
 }
@@ -2518,9 +2529,9 @@ useHead({
 }
 
 .stats-badge.g2.very-high {
-  background: rgba(0, 204, 255, 0.15);
-  color: #00ccff;
-  border: 1px solid rgba(0, 204, 255, 0.3);
+  background: rgba(255, 20, 147, 0.15);
+  color: #ff1493;
+  border: 1px solid rgba(255, 20, 147, 0.3);
 }
 
 .stats-badge.g2.high {
@@ -2646,11 +2657,11 @@ useHead({
 }
 
 .iframe-placeholder.loading :deep(svg) {
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .iframe-placeholder.loading h3 {
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .iframe-placeholder.error :deep(svg) {
@@ -2690,23 +2701,23 @@ useHead({
 
 .btn-retry {
   background: transparent;
-  border: 1px solid #00ccff;
-  color: #00ccff;
+  border: 1px solid #ff1493;
+  color: #ff1493;
 }
 
 .btn-retry:hover {
-  background: #00ccff;
+  background: #ff1493;
   color: black;
 }
 
 .btn-login {
-  background: #00ccff;
+  background: #ff1493;
   border: none;
   color: black;
 }
 
 .btn-login:hover {
-  background: #00b8e6;
+  background: #e6008a;
 }
 
 /* Responsive */

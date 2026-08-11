@@ -6,7 +6,7 @@
           <div class="modal-header">
             <div class="modal-logo">
               <Icon name="ph:crown-simple-bold" class="crown-icon" />
-              <span>Irmandade Club</span>
+              <span>{{ APP_NAME }}</span>
             </div>
           </div>
 
@@ -67,6 +67,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../shared/app'
+
 const { showModal, checking, error, checkSubscription, dismissModal } = useSubscription()
 
 const checkoutUrl = 'https://lastlink.com/p/C80B167D8/checkout-payment'
@@ -115,8 +117,8 @@ const handleCheck = async () => {
 }
 
 .modal-header {
-  background: linear-gradient(135deg, #0a1a2a 0%, #001a30 100%);
-  border-bottom: 1px solid #1a2a3a;
+  background: linear-gradient(135deg, #280516 0%, #120109 100%);
+  border-bottom: 1px solid rgba(255, 20, 147, 0.22);
   padding: 20px 24px;
 }
 
@@ -131,7 +133,7 @@ const handleCheck = async () => {
 
 .crown-icon {
   font-size: 24px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .modal-body {
@@ -181,7 +183,7 @@ const handleCheck = async () => {
 }
 
 .email-input:focus {
-  border-color: #00ccff;
+  border-color: #ff1493;
 }
 
 .email-input::placeholder {
@@ -215,7 +217,7 @@ const handleCheck = async () => {
   gap: 8px;
   width: 100%;
   padding: 14px;
-  background: #00ccff;
+  background: #ff1493;
   color: #000;
   font-size: 15px;
   font-weight: 700;
@@ -226,7 +228,7 @@ const handleCheck = async () => {
 }
 
 .btn-verificar:hover:not(:disabled) {
-  background: #00b8e6;
+  background: #e6008a;
 }
 
 .btn-verificar:disabled {
@@ -258,8 +260,8 @@ const handleCheck = async () => {
   width: 100%;
   padding: 14px;
   background: transparent;
-  border: 1px solid #00ccff;
-  color: #00ccff;
+  border: 1px solid #ff1493;
+  color: #ff1493;
   font-size: 15px;
   font-weight: 700;
   border-radius: 10px;
@@ -269,7 +271,7 @@ const handleCheck = async () => {
 }
 
 .btn-assinar:hover {
-  background: rgba(0, 204, 255, 0.08);
+  background: rgba(255, 20, 147, 0.08);
 }
 
 .checkout-indisponivel {

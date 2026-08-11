@@ -10,6 +10,49 @@ export default defineNuxtConfig({
 
   css: [],
 
+  // Head do documento. Isto ANTES vivia num `app.html` na raiz com a sintaxe de
+  // template do Nuxt 2 ({{ HEAD }}, {{ APP }}) — o Nuxt 4 não lê esse arquivo
+  // (o pacote não tem uma única referência a `app.html`), então favicon, manifest,
+  // metas de PWA e Open Graph nunca chegavam ao browser. Aqui elas de fato saem.
+  app: {
+    head: {
+      title: 'Clube da BB',
+      htmlAttrs: { lang: 'pt-BR' },
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/icon-192.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/manifest.json' }
+      ],
+      meta: [
+        // PWA
+        { name: 'application-name', content: 'Clube da BB' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        { name: 'apple-mobile-web-app-title', content: 'Clube da BB' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'theme-color', content: '#ff1493' },
+        // SEO
+        { name: 'keywords', content: 'Clube da BB, Cassino Ao Vivo, Bac Bo, Estatísticas, Análise de padrões, Jogos ao vivo' },
+        { name: 'author', content: 'Clube da BB' },
+        // Open Graph / Facebook. As URLs de imagem precisam ser absolutas:
+        // os scrapers do Facebook/WhatsApp ignoram caminho relativo.
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://app.clubedabb.online/' },
+        { property: 'og:title', content: 'Clube da BB - Análises e Estatísticas em Tempo Real' },
+        { property: 'og:description', content: 'Plataforma exclusiva com análises inteligentes e estatísticas em tempo real para jogos ao vivo.' },
+        { property: 'og:image', content: 'https://app.clubedabb.online/og-image.jpg' },
+        // Twitter
+        { property: 'twitter:card', content: 'summary_large_image' },
+        { property: 'twitter:url', content: 'https://app.clubedabb.online/' },
+        { property: 'twitter:title', content: 'Clube da BB - Análises em Tempo Real' },
+        { property: 'twitter:description', content: 'Plataforma exclusiva com análises inteligentes e estatísticas em tempo real.' },
+        { property: 'twitter:image', content: 'https://app.clubedabb.online/og-image.jpg' }
+      ]
+    }
+  },
+
   // dev: libera hosts de túnel (ex.: cloudflared) pra testar webhooks externos.
   // Só vale no servidor de desenvolvimento; não afeta produção.
   vite: {

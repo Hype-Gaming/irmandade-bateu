@@ -3,7 +3,7 @@
     <div v-if="isLoading" class="page-loader">
       <div class="loader-content">
         <div class="loader-logo">
-          <img src="/logo.png" alt="Irmandade Club" />
+          <img src="/logo.png" :alt="APP_NAME" />
         </div>
         <div class="loader-spinner">
           <div class="spinner-ring"></div>
@@ -17,6 +17,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../shared/app'
+
 const nuxtApp = useNuxtApp()
 const isLoading = ref(false)
 
@@ -88,12 +90,12 @@ nuxtApp.hook('page:finish', () => {
 }
 
 .spinner-ring:nth-child(1) {
-  border-top-color: #00ccff;
+  border-top-color: #ff1493;
   animation-delay: 0s;
 }
 
 .spinner-ring:nth-child(2) {
-  border-right-color: #00ccff;
+  border-right-color: #ff1493;
   animation-delay: 0.15s;
   width: 80%;
   height: 80%;
@@ -102,7 +104,7 @@ nuxtApp.hook('page:finish', () => {
 }
 
 .spinner-ring:nth-child(3) {
-  border-bottom-color: #00ccff;
+  border-bottom-color: #ff1493;
   animation-delay: 0.3s;
   width: 60%;
   height: 60%;

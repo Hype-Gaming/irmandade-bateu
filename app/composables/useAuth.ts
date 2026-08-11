@@ -1,4 +1,4 @@
-// Composable de Autenticação - Irmandade Club
+// Composable de Autenticação - Clube da BB
 // Integração com API Cactus
 
 import { BRANDS, DEFAULT_BRAND, getBrand, getDefaultBrand } from '../../shared/brands'
@@ -61,6 +61,11 @@ export interface AuthState {
   userCollection: string
 }
 
+// Chave da sessão no localStorage. O prefixo "irmandade_" ficou do nome antigo
+// do app e é DE PROPÓSITO: renomear a chave junto com a marca derruba a sessão
+// de todo mundo que já está logado, porque o app deixa de achar o token salvo.
+const AUTH_STORAGE_KEY = 'irmandade_auth'
+
 // Estado global reativo
 const authState = reactive<AuthState>({
   user: null,
@@ -95,7 +100,7 @@ export const useAuth = () => {
   // Carregar estado do localStorage ao inicializar
   const loadAuthState = () => {
     if (import.meta.client) {
-      const savedAuth = localStorage.getItem('irmandade_auth')
+      const savedAuth = localStorage.getItem(AUTH_STORAGE_KEY)
       if (savedAuth) {
         try {
           const parsed = JSON.parse(savedAuth)
@@ -120,7 +125,7 @@ export const useAuth = () => {
   // Salvar estado no localStorage
   const saveAuthState = () => {
     if (import.meta.client) {
-      localStorage.setItem('irmandade_auth', JSON.stringify({
+      localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify({
         user: authState.user,
         token: authState.token,
         cookieKey: authState.cookieKey,
@@ -142,7 +147,7 @@ export const useAuth = () => {
     // Volta para a marca ativa do deploy
     applyBrand(activeDefaultBrand())
     if (import.meta.client) {
-      localStorage.removeItem('irmandade_auth')
+      localStorage.removeItem(AUTH_STORAGE_KEY)
     }
   }
 

@@ -1,4 +1,4 @@
-// Composable de Web Push - Irmandade Club
+// Composable de Web Push - Clube da BB
 // Gerencia permissão, inscrição no Push e sincronização com o servidor.
 
 // Converte a chave pública VAPID (base64url) para o Uint8Array exigido por

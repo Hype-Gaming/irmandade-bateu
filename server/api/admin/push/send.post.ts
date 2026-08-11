@@ -29,6 +29,6 @@ export default defineEventHandler(async (event) => {
     title,
     body: message,
     url: body?.url?.trim() || '/',
-    icon: body?.icon?.trim() || '/images/logo.png'
+    icon: body?.icon?.trim() || '/icon-192.png'
   })
 })

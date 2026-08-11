@@ -7,7 +7,7 @@ export default defineNuxtRouteMiddleware((to) => {
     return
   }
 
-  const publicRoutes = ['/', '/auth/login', '/auth/register', '/auth/forgot-password']
+  const publicRoutes = ['/aulas', '/', '/auth/login', '/auth/register', '/auth/forgot-password']
 
   if (publicRoutes.includes(to.path)) {
     if (isAuthenticated.value && to.path === '/auth/login') {

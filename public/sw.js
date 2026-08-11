@@ -1,11 +1,11 @@
-const CACHE_NAME = 'irmandade-club-v1';
+const CACHE_NAME = 'club-da-bb-v1';
 const VERSION_URL = '/version.json';
 const CHECK_INTERVAL = 30000; // Verificar a cada 30 segundos
 
 const urlsToCache = [
   '/',
   '/auth/login',
-  '/images/logo.png',
+  '/logo.png',
   '/robots.txt'
 ];
 
@@ -153,11 +153,11 @@ self.addEventListener('push', (event) => {
     }
   }
 
-  const title = data.title || 'Irmandade Club';
+  const title = data.title || 'Clube da BB';
   const options = {
     body: data.body || 'Você tem uma nova notificação!',
-    icon: data.icon || '/images/logo.png',
-    badge: '/images/logo.png',
+    icon: data.icon || '/icon-192.png',
+    badge: '/favicon-32x32.png',
     vibrate: [100, 50, 100],
     data: {
       url: data.url || '/',

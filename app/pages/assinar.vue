@@ -4,12 +4,12 @@
       <div class="card">
         <div class="logo">
           <Icon name="ph:crown-simple-bold" class="crown-icon" />
-          <h1>Irmandade Club</h1>
+          <h1>{{ APP_NAME }}</h1>
         </div>
 
         <div class="content">
           <h2>Acesso Exclusivo</h2>
-          <p>Você ainda não possui uma assinatura ativa para acessar o Irmandade Club.</p>
+          <p>Você ainda não possui uma assinatura ativa para acessar o {{ APP_NAME }}.</p>
 
           <div class="features">
             <div class="feature">
@@ -63,6 +63,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../shared/app'
+
 const { user, logout } = useAuth()
 const { checkSubscription } = useSubscription()
 
@@ -113,7 +115,7 @@ onUnmounted(() => {
   window.removeEventListener('pageshow', handleCheckoutReturn)
 })
 
-useHead({ title: 'Assinar - Irmandade Club' })
+useHead({ title: `Assinar - ${APP_NAME}` })
 </script>
 
 <style scoped>
@@ -150,7 +152,7 @@ useHead({ title: 'Assinar - Irmandade Club' })
 
 .crown-icon {
   font-size: 32px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .logo h1 {
@@ -199,7 +201,7 @@ useHead({ title: 'Assinar - Irmandade Club' })
 
 .feature :deep(svg) {
   font-size: 18px;
-  color: #00ccff;
+  color: #ff1493;
   flex-shrink: 0;
 }
 
@@ -209,7 +211,7 @@ useHead({ title: 'Assinar - Irmandade Club' })
   justify-content: center;
   gap: 10px;
   padding: 16px 24px;
-  background: #00ccff;
+  background: #ff1493;
   color: #000;
   font-size: 16px;
   font-weight: 700;
@@ -219,7 +221,7 @@ useHead({ title: 'Assinar - Irmandade Club' })
 }
 
 .btn-assinar:hover {
-  background: #00b8e6;
+  background: #e6008a;
 }
 
 .checkout-pendente {
@@ -248,7 +250,7 @@ useHead({ title: 'Assinar - Irmandade Club' })
 .btn-verificar {
   background: none;
   border: none;
-  color: #00ccff;
+  color: #ff1493;
   font-size: 13px;
   cursor: pointer;
   text-decoration: underline;

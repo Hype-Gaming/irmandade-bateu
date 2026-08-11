@@ -2,7 +2,7 @@
   <div class="login-page">
     <div class="login-container">
       <div class="login-header">
-        <img src="/logo.png" alt="Irmandade Club" class="logo" />
+        <img src="/logo.png" :alt="APP_NAME" class="logo" />
         <p class="subtitle">Acesse sua conta</p>
       </div>
 
@@ -87,6 +87,7 @@ definePageMeta({
   layout: 'default'
 })
 
+import { APP_NAME } from '../../../shared/app'
 import { getDefaultBrand } from '../../../shared/brands'
 
 const { login, loading, error, isAuthenticated, user } = useAuth()
@@ -161,7 +162,7 @@ const handleLogin = async () => {
   background-color: #111111;
   border-radius: 16px;
   border: 1px solid #222222;
-  box-shadow: 0 20px 60px rgba(0, 204, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(255, 20, 147, 0.1);
 }
 
 .login-header {
@@ -217,7 +218,7 @@ const handleLogin = async () => {
 }
 
 .toggle-btn.active {
-  background: linear-gradient(135deg, #00ccff 0%, #0099cc 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #c6006f 100%);
   color: #000;
 }
 
@@ -242,7 +243,7 @@ const handleLogin = async () => {
 
 .input-icon {
   font-size: 16px;
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .form-group input[type="email"],
@@ -262,8 +263,8 @@ const handleLogin = async () => {
 .form-group input[type="email"]:focus,
 .form-group input[type="password"]:focus,
 .form-group input[type="text"]:focus {
-  border-color: #00ccff;
-  box-shadow: 0 0 0 3px rgba(0, 204, 255, 0.15);
+  border-color: #ff1493;
+  box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.15);
 }
 
 .form-group input::placeholder {
@@ -296,7 +297,7 @@ const handleLogin = async () => {
 }
 
 .toggle-password:hover {
-  color: #00ccff;
+  color: #ff1493;
 }
 
 .toggle-password :deep(svg) {
@@ -321,7 +322,7 @@ const handleLogin = async () => {
 }
 
 .link {
-  color: #00ccff;
+  color: #ff1493;
   text-decoration: none;
   font-size: 14px;
   transition: opacity 0.2s ease;
@@ -335,7 +336,7 @@ const handleLogin = async () => {
 .btn-login {
   width: 100%;
   padding: 16px;
-  background: linear-gradient(135deg, #00ccff 0%, #0099cc 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #c6006f 100%);
   border: none;
   border-radius: 10px;
   color: #000000;
@@ -361,7 +362,7 @@ const handleLogin = async () => {
 
 .btn-login:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 204, 255, 0.35);
+  box-shadow: 0 8px 25px rgba(255, 20, 147, 0.35);
 }
 
 .btn-login:active:not(:disabled) {
@@ -397,15 +398,15 @@ const handleLogin = async () => {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(0, 204, 255, 0.1);
-  border: 1px solid rgba(0, 204, 255, 0.3);
+  background: rgba(255, 20, 147, 0.1);
+  border: 1px solid rgba(255, 20, 147, 0.3);
   border-radius: 10px;
   padding: 12px 16px;
   margin-bottom: 20px;
 }
 
 .info-banner :deep(svg) {
-  color: #00ccff;
+  color: #ff1493;
   font-size: 18px;
   flex-shrink: 0;
 }
@@ -417,17 +418,13 @@ const handleLogin = async () => {
 }
 
 .info-banner strong {
-  color: #00ccff;
+  color: #ff1493;
 }
 
 /* Responsividade */
 @media (max-width: 480px) {
   .login-container {
     padding: 28px 20px;
-  }
-
-  .logo {
-    font-size: 24px;
   }
 
   .form-group input[type="email"],

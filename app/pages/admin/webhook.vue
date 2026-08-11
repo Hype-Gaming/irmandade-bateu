@@ -106,6 +106,8 @@
 </template>
 
 <script setup lang="ts">
+import { APP_NAME } from '../../../shared/app'
+
 definePageMeta({ middleware: 'admin' })
 
 interface ProcessedEntry {
@@ -196,7 +198,7 @@ onMounted(async () => {
   }
 })
 
-useHead({ title: 'Admin – Irmandade Club' })
+useHead({ title: `Admin – ${APP_NAME}` })
 </script>
 
 <style>
@@ -241,7 +243,7 @@ useHead({ title: 'Admin – Irmandade Club' })
 
 .eyebrow {
   margin: 0 0 8px;
-  color: #00ccff;
+  color: #ff1493;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 12px;
@@ -290,7 +292,7 @@ useHead({ title: 'Admin – Irmandade Club' })
 }
 
 .back-link:hover {
-  border-color: #00ccff;
+  border-color: #ff1493;
 }
 
 .logout-btn {
@@ -362,9 +364,9 @@ useHead({ title: 'Admin – Irmandade Club' })
 .email-counter {
   font-size: 12px;
   font-weight: 700;
-  color: #00ccff;
-  background: rgba(0, 204, 255, 0.1);
-  border: 1px solid rgba(0, 204, 255, 0.2);
+  color: #ff1493;
+  background: rgba(255, 20, 147, 0.1);
+  border: 1px solid rgba(255, 20, 147, 0.2);
   padding: 4px 10px;
   border-radius: 999px;
 }
@@ -386,8 +388,8 @@ useHead({ title: 'Admin – Irmandade Club' })
 }
 
 .admin-form textarea:focus {
-  border-color: #00ccff;
-  box-shadow: 0 0 0 3px rgba(0, 204, 255, 0.12);
+  border-color: #ff1493;
+  box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.12);
 }
 
 .helper-text {
@@ -453,7 +455,7 @@ useHead({ title: 'Admin – Irmandade Club' })
   flex: 1;
   border: none;
   border-radius: 14px;
-  background: linear-gradient(135deg, #00ccff 0%, #0088cc 100%);
+  background: linear-gradient(135deg, #ff1493 0%, #b80067 100%);
   color: #000;
   font-size: 15px;
   font-weight: 800;
@@ -467,14 +469,14 @@ useHead({ title: 'Admin – Irmandade Club' })
 }
 
 .submit-btn {
-  box-shadow: 0 6px 22px rgba(0, 204, 255, 0.2);
+  box-shadow: 0 6px 22px rgba(255, 20, 147, 0.2);
   transition: opacity 0.2s, transform 0.2s var(--adm-ease), box-shadow 0.2s;
 }
 
 .submit-btn:hover:not(:disabled) {
   opacity: 0.92;
   transform: translateY(-1px);
-  box-shadow: 0 10px 30px rgba(0, 204, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3);
 }
 
 .submit-btn:active:not(:disabled) {
@@ -567,8 +569,8 @@ useHead({ title: 'Admin – Irmandade Club' })
 }
 
 .result-badge.updated {
-  background: rgba(0, 204, 255, 0.14);
-  color: #7dd3fc;
+  background: rgba(255, 20, 147, 0.14);
+  color: #ff7ac8;
 }
 
 .result-badge.already_active {
