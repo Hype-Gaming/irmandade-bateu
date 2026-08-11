@@ -204,6 +204,7 @@
               <tr>
                 <th>Usuário</th>
                 <th>Telefone</th>
+                <th>ID Jogador</th>
                 <th>Tag</th>
                 <th>Contato</th>
                 <th>Assinatura</th>
@@ -237,6 +238,10 @@
                   >
                     <Icon name="ph:whatsapp-logo-bold" /> {{ u.phone }}
                   </a>
+                  <span v-else class="muted-dash">—</span>
+                </td>
+                <td data-label="ID Jogador">
+                  <span v-if="u.cactus_user_id" class="mono">{{ u.cactus_user_id }}</span>
                   <span v-else class="muted-dash">—</span>
                 </td>
                 <td data-label="Tag">

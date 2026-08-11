@@ -77,7 +77,7 @@ export default defineEventHandler(async (event) => {
   const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '')
 
   const header = [
-    'Nome', 'E-mail', 'Telefone', 'Assinatura', 'PIX (qtd)', 'Valor PIX',
+    'Nome', 'E-mail', 'Telefone', 'ID Jogador', 'Assinatura', 'PIX (qtd)', 'Valor PIX',
     'Marca', '1o acesso', 'Ultimo acesso', 'Status', 'Risco', 'Status contato'
   ]
 
@@ -87,6 +87,7 @@ export default defineEventHandler(async (event) => {
       cell(u.name || ''),
       cell(u.email || ''),
       cell(u.phone || ''),
+      cell(u.cactus_user_id ?? ''),
       cell(u.subscription === 'paid' ? 'Pago' : 'Free'),
       cell(u.deposits_count ?? 0),
       cell(fmtMoney(u.deposits_sum)),
