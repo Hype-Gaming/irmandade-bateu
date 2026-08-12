@@ -17,8 +17,14 @@
 
 export interface AulaActionLink {
   label: string
-  url: string
   icon: string
+  // Rota interna ('/gestao') ou URL absoluta. Deixe vazio quando `affiliate`
+  // for true — nesse caso a página resolve o link.
+  url?: string
+  // true = usa o link de afiliado da marca ATIVA (shared/brands.ts), em vez de
+  // uma URL fixa. Cada deploy roda com uma casa diferente, então cravar o link
+  // aqui mandaria o usuário da Bateu se cadastrar na Esportiva.
+  affiliate?: boolean
 }
 
 export interface Aula {
@@ -33,15 +39,34 @@ export interface Aula {
 
 export const AULAS: Aula[] = [
   {
-    title: 'Boas Vindas',
-    description: 'Introdução à plataforma e como aproveitar ao máximo o que ela oferece.',
-    embedUrl: 'https://www.youtube.com/embed/wl4OV4A0_jQ',
-    orientation: 'horizontal'
+    title: 'Como se cadastrar',
+    description: 'Veja como criar sua conta e dar os primeiros passos.',
+    cover: '/minicurso/como-se-cadastrar.webp',
+    videoKey: 'clube-da-bb/como-se-cadastrar.mp4',
+    orientation: 'vertical',
+    actionLink: {
+      label: 'Plataforma que eu opero',
+      icon: 'ph:chart-line-up-bold',
+      affiliate: true
+    }
   },
   {
-    title: 'Gestão de Banca',
-    description: 'Aprenda a gerenciar sua banca de forma inteligente e sustentável.',
-    embedUrl: 'https://www.youtube.com/embed/sqqiDdWbCng',
+    title: 'Como operar',
+    description: 'Entenda como funciona a operação de forma prática.',
+    cover: '/minicurso/como-operar.webp',
+    videoKey: 'clube-da-bb/como-operar.mp4',
+    orientation: 'horizontal',
+    actionLink: {
+      label: 'Mesa de operações',
+      icon: 'ph:monitor-play-bold',
+      affiliate: true
+    }
+  },
+  {
+    title: 'Gerenciamento de banca',
+    description: 'Aprenda a organizar sua banca com mais consciência.',
+    cover: '/minicurso/gerenciamento-de-banca.webp',
+    videoKey: 'clube-da-bb/Gerenciamento-de-Banca.mp4',
     orientation: 'horizontal',
     actionLink: {
       label: 'Abrir a gestão de banca',
@@ -50,15 +75,10 @@ export const AULAS: Aula[] = [
     }
   },
   {
-    title: 'Planilha na Prática',
-    description: 'Como utilizar a planilha de controle para acompanhar seus resultados.',
-    embedUrl: 'https://www.youtube.com/embed/mR7-zf8zq4E',
-    orientation: 'horizontal'
-  },
-  {
-    title: 'Estratégia',
-    description: 'Conheça as melhores estratégias para maximizar seus ganhos.',
-    embedUrl: 'https://www.youtube.com/embed/MQib7ycd6G8',
-    orientation: 'horizontal'
+    title: 'Como entrar no grupo VIP',
+    description: 'Entenda o passo final para entrar no grupo VIP e aproveitar o conteúdo completo.',
+    cover: '/minicurso/como-entrar-vip.webp',
+    videoKey: 'clube-da-bb/como-entrar-no-grupo.mp4',
+    orientation: 'vertical'
   }
 ]

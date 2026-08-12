@@ -46,7 +46,15 @@
             :aria-label="`Assistir ${aula.title}`"
             @click="openLesson(aula)"
           >
-            <img v-if="aula.cover" :src="aula.cover" :alt="`Capa da ${aula.title}`" />
+            <!-- A primeira capa fica eager por estar acima da dobra (adiar ela
+                 atrasaria o LCP); as demais só baixam ao chegar perto da tela. -->
+            <img
+              v-if="aula.cover"
+              :src="aula.cover"
+              :alt="`Capa da ${aula.title}`"
+              :loading="index === 0 ? 'eager' : 'lazy'"
+              decoding="async"
+            />
             <!-- Sem capa publicada: bloco com número e título no lugar da arte,
                  pra aula poder ir ao ar antes da imagem ficar pronta. -->
             <span v-else class="lesson__media-fallback">
@@ -65,17 +73,17 @@
                 <Icon name="ph:play-fill" />
               </button>
               <NuxtLink
-                v-if="aula.actionLink && !isExternal(aula.actionLink.url)"
+                v-if="aula.actionLink && actionUrl(aula.actionLink) && !isExternal(actionUrl(aula.actionLink))"
                 class="lesson__link-pill"
-                :to="aula.actionLink.url"
+                :to="actionUrl(aula.actionLink)"
               >
                 <Icon :name="aula.actionLink.icon" />
                 {{ aula.actionLink.label }}
               </NuxtLink>
               <a
-                v-else-if="aula.actionLink"
+                v-else-if="aula.actionLink && actionUrl(aula.actionLink)"
                 class="lesson__link-pill"
-                :href="aula.actionLink.url"
+                :href="actionUrl(aula.actionLink)"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -94,10 +102,21 @@
         <h2>Conte com a gente.</h2>
         <p>Se surgir alguma dúvida durante o minicurso, fale com o suporte do {{ APP_NAME }}.</p>
       </div>
-      <a :href="supportUrl" target="_blank" rel="noopener noreferrer" class="support__button">
-        <Icon name="ph:whatsapp-logo-bold" />
-        Falar com o suporte
-      </a>
+      <div class="support__actions">
+        <a :href="supportUrl" target="_blank" rel="noopener noreferrer" class="support__button">
+          <Icon name="ph:whatsapp-logo-bold" />
+          Falar com o suporte
+        </a>
+        <a
+          :href="communityUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="support__button support__button--community"
+        >
+          <Icon name="ph:users-three-bold" />
+          Entrar na comunidade
+        </a>
+      </div>
     </section>
 
     <footer>Conteúdo educativo. Jogue com responsabilidade. Proibido para menores de 18 anos.</footer>
@@ -157,13 +176,31 @@
 <script setup lang="ts">
 import { APP_NAME } from '../../shared/app'
 import { videoUrl } from '../../shared/videos'
-import { SUPPORT_WHATSAPP_URL } from '../../shared/support'
-import { AULAS, type Aula } from '../constants/aulas'
+import { SUPPORT_WHATSAPP_URL, COMMUNITY_WHATSAPP_URL } from '../../shared/support'
+import { AULAS, type Aula, type AulaActionLink } from '../constants/aulas'
+import { getDefaultBrand } from '../../shared/brands'
 
 useHead({ title: `Minicurso - ${APP_NAME}` })
 
 const aulas = AULAS
+
+const { affiliateUrl, isAuthenticated } = useAuth()
+const config = useRuntimeConfig()
+
+// Link de afiliado da casa certa. Logado, vale a marca do usuário (login duplo).
+// Anônimo, o useAuth cai em BRANDS[0] (Esportiva), que estaria errado neste
+// deploy — então usamos a marca configurada em NUXT_PUBLIC_APP_BRAND.
+const brandAffiliateUrl = computed(() =>
+  isAuthenticated.value
+    ? affiliateUrl.value
+    : getDefaultBrand(config.public.appBrand as string).affiliateUrl
+)
+
+// URL final do botão da aula: '' quando não há link, pra o template esconder.
+const actionUrl = (link: AulaActionLink): string =>
+  link.affiliate ? brandAffiliateUrl.value : (link.url || '')
 const supportUrl = SUPPORT_WHATSAPP_URL
+const communityUrl = COMMUNITY_WHATSAPP_URL
 const selectedLesson = ref<Aula | null>(null)
 const videoFailed = ref(false)
 
@@ -247,7 +284,11 @@ h1, h2, h3 { font-family: 'Space Grotesk', Manrope, sans-serif; }
 .lesson__link-pill { padding: 12px 16px; border: 1px solid rgba(255, 118, 183, .52); color: #ffc3e3; background: rgba(255, 44, 145, .1); font-size: 13px; }
 .support { width: min(1180px, calc(100% - 32px)); display: flex; align-items: end; justify-content: space-between; gap: 30px; margin: 30px auto 75px; padding: 45px; border: 1px solid rgba(255, 71, 158, .28); border-radius: 28px; background: radial-gradient(circle at 92% 12%, rgba(255, 0, 126, .28), transparent 28%), #190611; }
 .support p:not(.eyebrow) { max-width: 520px; margin: 16px 0 0; color: #c7aebb; line-height: 1.6; }
+.support__actions { flex: 0 0 auto; display: flex; flex-wrap: wrap; gap: 12px; }
 .support__button { flex: 0 0 auto; padding: 15px 20px; background: linear-gradient(135deg, #2bea73, #16a34a); color: #fff; box-shadow: 0 10px 25px rgba(37, 211, 102, .28); }
+/* Verde = atendimento 1:1; rosa da marca = grupo. Dois botões verdes lado a
+   lado ficariam indistinguíveis à primeira vista. */
+.support__button--community { background: linear-gradient(135deg, #ff57af, #e80070); box-shadow: 0 10px 25px rgba(232, 0, 112, .28); }
 footer { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 44px; border-top: 1px solid rgba(255,255,255,.12); color: #836d79; font-size: 12px; text-align: center; }
 .modal { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(0,0,0,.82); backdrop-filter: blur(9px); }
 .modal__content { position: relative; overflow: hidden; width: min(900px, 100%); max-height: 92vh; border: 1px solid rgba(255,255,255,.2); border-radius: 24px; background: #190711; }
@@ -269,5 +310,5 @@ footer { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 
   .back-link:hover, .hero__button:hover, .watch-button:hover, .lesson__link-pill:hover, .support__button:hover { transform: none; }
   .lesson__media:hover img { transform: none; }
 }
-@media (max-width: 700px) { .site-header { height: 70px; }.brand img { height: 32px; }.back-link { padding: 9px 11px; font-size: 10px; }.hero { min-height: 480px; padding: 70px 0 80px; }.hero__glow { width: 85%; opacity: .8; }.section-heading, .support { align-items: flex-start; flex-direction: column; }.course { padding: 70px 0; }.lesson, .lesson--reverse { grid-template-columns: 1fr; gap: 24px; }.lesson--reverse .lesson__media { order: 0; }.lesson { padding: 16px; border-radius: 23px; }.lesson h3 { font-size: 39px; }.lesson__content { padding: 5px 5px 12px; }.support { padding: 30px 25px; margin-bottom: 45px; }.support__button { width: 100%; }.hero__description { font-size: 15px; } }
+@media (max-width: 700px) { .site-header { height: 70px; }.brand img { height: 32px; }.back-link { padding: 9px 11px; font-size: 10px; }.hero { min-height: 480px; padding: 70px 0 80px; }.hero__glow { width: 85%; opacity: .8; }.section-heading, .support { align-items: flex-start; flex-direction: column; }.course { padding: 70px 0; }.lesson, .lesson--reverse { grid-template-columns: 1fr; gap: 24px; }.lesson--reverse .lesson__media { order: 0; }.lesson { padding: 16px; border-radius: 23px; }.lesson h3 { font-size: 39px; }.lesson__content { padding: 5px 5px 12px; }.support { padding: 30px 25px; margin-bottom: 45px; }.support__actions { width: 100%; flex-direction: column; }.support__button { width: 100%; }.hero__description { font-size: 15px; } }
 </style>
