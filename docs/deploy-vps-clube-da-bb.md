@@ -5,7 +5,7 @@ porta local `3110`. O Nginx é o único serviço exposto nas portas 80 e 443.
 
 ## 1. Aponte o domínio
 
-No provedor DNS de `clubedabb.online`, crie um registro:
+No provedor DNS de `clubdabb2.online`, crie um registro:
 
 - Tipo: `A`
 - Nome: `app`
@@ -14,7 +14,7 @@ No provedor DNS de `clubedabb.online`, crie um registro:
 Espere a propagação e confira do seu computador:
 
 ```bash
-nslookup app.clubedabb.online
+nslookup app.clubdabb2.online
 ```
 
 O IP retornado precisa ser o IP da VPS antes de emitir o certificado HTTPS.
@@ -55,7 +55,7 @@ Push. Para este deploy, mantenha pelo menos:
 ```dotenv
 NODE_ENV=production
 NUXT_PUBLIC_APP_BRAND=bateu
-VAPID_SUBJECT=mailto:admin@app.clubedabb.online
+VAPID_SUBJECT=mailto:admin@app.clubdabb2.online
 ```
 
 Preserve também `MONGODB_URI`, `MONGODB_DB`, `VAPID_PUBLIC_KEY`,
@@ -87,8 +87,8 @@ O `curl` deve retornar uma resposta HTTP do Nuxt.
 ## 5. Instale a configuração do Nginx
 
 ```bash
-sudo cp /var/www/clube-da-bb/deploy/nginx/app.clubedabb.online.conf /etc/nginx/sites-available/app.clubedabb.online
-sudo ln -s /etc/nginx/sites-available/app.clubedabb.online /etc/nginx/sites-enabled/app.clubedabb.online
+sudo cp /var/www/clube-da-bb-bateu/deploy/nginx/app.clubdabb2.online.conf /etc/nginx/sites-available/app.clubdabb2.online
+sudo ln -s /etc/nginx/sites-available/app.clubdabb2.online /etc/nginx/sites-enabled/app.clubdabb2.online
 sudo nginx -t
 sudo systemctl reload nginx
 ```
@@ -96,7 +96,7 @@ sudo systemctl reload nginx
 Se o link já existir, não repita o `ln -s`. Teste primeiro em HTTP:
 
 ```bash
-curl -I http://app.clubedabb.online
+curl -I http://app.clubdabb2.online
 ```
 
 ## 6. Ative HTTPS com Certbot
@@ -106,7 +106,7 @@ Com o DNS já apontado e as portas 80/443 liberadas:
 ```bash
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/local/bin/certbot
-sudo certbot --nginx -d app.clubedabb.online
+sudo certbot --nginx -d app.clubdabb2.online
 sudo nginx -t
 sudo systemctl reload nginx
 sudo certbot renew --dry-run
@@ -146,7 +146,7 @@ Verificação final:
 pm2 status
 pm2 logs bateu --lines 50
 sudo nginx -t
-curl -I https://app.clubedabb.online
+curl -I https://app.clubdabb2.online
 ```
 
 Em caso de erro `502 Bad Gateway`, confirme primeiro se o processo `bateu` está
