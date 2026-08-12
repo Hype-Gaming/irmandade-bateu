@@ -292,6 +292,7 @@
 
 <script setup lang="ts">
 import { APP_NAME } from '../../shared/app'
+import { COMMUNITY_WHATSAPP_URL } from '../../shared/support'
 
 definePageMeta({
   layout: 'default'
@@ -367,7 +368,11 @@ onMounted(() => {
 })
 
 const banners = ref([
-  { image: '/banner-clube-da-bb.png', alt: 'Clube da BB - análises e estratégias para Bac Bo' }
+  {
+    image: '/banner-clube-da-bb.png',
+    alt: 'Clube da BB - análises e estratégias para Bac Bo',
+    href: COMMUNITY_WHATSAPP_URL
+  }
 ])
 
 const currentBanner = ref(0)
