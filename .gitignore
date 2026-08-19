@@ -59,3 +59,7 @@ dump.pm2
 # SSH deploy keys (NUNCA commitar a chave privada)
 deploy_key*
 *.pem
+
+# Exports e planilhas com dados pessoais (gerar fora do repo)
+*.csv
+*.xlsx
